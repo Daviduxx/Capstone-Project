@@ -29,7 +29,7 @@ public class User {
     private String name;
     private String surname;
     @Column(nullable = false)
-    private LocalDate birthDay;
+    private LocalDate birthday;
     @Column(nullable = false, unique = true)
     private String username;
     @Column(nullable = false, unique = true)
@@ -51,6 +51,8 @@ public class User {
   
     @ManyToOne
     private Address address;
-//    private Set<Licence> licences = new HashSet<>();
-//    private DivingCenter divingCenter;
+    @OneToMany
+    private Set<Licence> licences = new HashSet<>();
+    @ManyToOne
+    private DivingCenter divingCenter;
 }
