@@ -8,6 +8,8 @@ public class WediveApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(WediveApplication.class, args);
+		
+		System.out.println("Welcome to wedive!");
 	}
 
 }
