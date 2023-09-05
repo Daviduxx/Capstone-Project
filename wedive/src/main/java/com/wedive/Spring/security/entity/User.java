@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -26,10 +27,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String surname;
+    @Column(nullable = false)
+    private LocalDate birthDay;
     @Column(nullable = false, unique = true)
     private String username;
     @Column(nullable = false, unique = true)
     private String email;
+    private String phoneNumber;
     @Column(nullable = false)
     private String password;
     // Parametri aggiuntivi
@@ -43,4 +48,9 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
     private Set<Role> roles = new HashSet<>();
+  
+    @ManyToOne
+    private Address address;
+//    private Set<Licence> licences = new HashSet<>();
+//    private DivingCenter divingCenter;
 }

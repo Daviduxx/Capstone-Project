@@ -33,8 +33,9 @@ public class AuthRunner implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("Run...");
-		// Da lanciare solo la prima volta
-		setRoleDefault();
+		if (roleRepository.findAll().size() == 0) {
+			setRoleDefault();			
+		}
 		
 	}
 	
