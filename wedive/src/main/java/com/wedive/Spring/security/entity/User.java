@@ -9,11 +9,10 @@ import lombok.ToString;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
 
-
-@Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -55,4 +54,55 @@ public class User {
     private Set<Licence> licences = new HashSet<>();
     @ManyToOne
     private DivingCenter divingCenter;
+    
+    
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+	public void setBirthday(LocalDate birthday) {
+		this.birthday = birthday;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public void setDate(LocalDateTime date) {
+		this.date = date;
+	}
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public void setLicences(Set<Licence> licences) {
+		this.licences = licences;
+	}
+	public void setDivingCenter(DivingCenter divingCenter) {
+		this.divingCenter = divingCenter;
+	}
+    
+	public void setBirthday(String birthday) {
+		
+		try {
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			LocalDate localDate = LocalDate.parse(birthday);			
+			
+		} catch(Exception e) {
+			System.out.println("La data inserita non è valida!" + e.getMessage());
+		}	
+	}
+    
+    
 }

@@ -19,7 +19,7 @@ import com.wedive.Spring.security.service.AuthService;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
-@RequestMapping("/api/auth")
+@RequestMapping("/join/auth")
 public class AuthController {
 
     private AuthService authService;
