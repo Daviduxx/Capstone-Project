@@ -6,4 +6,5 @@ import com.wedive.Spring.security.entity.Dive;
 
 public interface DiveDAO extends CrudRepository<Dive, Long> {
 
+		public boolean existsByNameAndIdNot(String name, Long id);
 }
