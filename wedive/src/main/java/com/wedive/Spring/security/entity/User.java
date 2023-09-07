@@ -54,6 +54,8 @@ public class User {
     private Set<Licence> licences = new HashSet<>();
     @ManyToOne
     private DivingCenter divingCenter;
+    @OneToMany
+    private Set<Dive> dives;
     
     
 	public void setName(String name) {
