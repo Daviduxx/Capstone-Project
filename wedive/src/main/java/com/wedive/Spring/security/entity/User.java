@@ -27,7 +27,7 @@ public class User {
     private Long id;
     private String name;
     private String surname;
-    @Column(nullable = false)
+    @Column(nullable = true)
     private LocalDate birthday;
     @Column(nullable = false, unique = true)
     private String username;
@@ -54,7 +54,7 @@ public class User {
     private Set<Licence> licences = new HashSet<>();
     @ManyToOne
     private DivingCenter divingCenter;
-    @OneToMany
+    @OneToMany(mappedBy="user", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private Set<Dive> dives;
     
     

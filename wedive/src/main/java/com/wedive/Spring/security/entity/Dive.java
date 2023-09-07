@@ -2,6 +2,7 @@ package com.wedive.Spring.security.entity;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.wedive.Spring.security.enums.Current;
 import com.wedive.Spring.security.enums.DiveType;
 import com.wedive.Spring.security.enums.GasMix;
@@ -18,6 +19,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -32,7 +34,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table
+@Table(name = "dives")
 public class Dive {
 	
     @Id
@@ -40,7 +42,7 @@ public class Dive {
     private Long id;
     @Column(nullable = false, unique = true)
 	private String name;
-    @Column(nullable = false)
+    @Column(nullable = true)
 	private LocalDate date;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -88,11 +90,14 @@ public class Dive {
 	@Column(nullable = false)
 	private Integer usedAir;
 	@Enumerated(EnumType.STRING)
-	private Judgment judgment;
+	private Judgment judgement;
 	private String notes;
 	private String buddy;
 	@Column(nullable = false)
 	private Boolean certified = false;
-	@ManyToOne
+	@JsonIgnore
+	@ManyToOne(optional = false, fetch=FetchType.LAZY)
 	private User user;
 }
+
+

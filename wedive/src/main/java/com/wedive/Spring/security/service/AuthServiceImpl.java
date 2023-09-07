@@ -1,6 +1,8 @@
 package com.wedive.Spring.security.service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.wedive.Spring.security.entity.Dive;
 import com.wedive.Spring.security.entity.ERole;
 import com.wedive.Spring.security.entity.Role;
 import com.wedive.Spring.security.entity.User;
@@ -22,6 +25,9 @@ import com.wedive.Spring.security.payload.RegisterResponse;
 import com.wedive.Spring.security.repository.RoleRepository;
 import com.wedive.Spring.security.repository.UserRepository;
 import com.wedive.Spring.security.security.JwtTokenProvider;
+
+import jakarta.persistence.EntityExistsException;
+import jakarta.persistence.EntityNotFoundException;
 
 
 
@@ -115,5 +121,17 @@ public class AuthServiceImpl implements AuthService {
     	else if(role.equals("MODERATOR")) return ERole.ROLE_MODERATOR;
     	else return ERole.ROLE_USER;
     }
+    
+    public User update(Long id, User u) {
+		if(!userRepository.existsById(id))
+			throw new EntityNotFoundException("This user doesn't exists!");
+		 u.setPassword(passwordEncoder.encode(u.getPassword()));
+		 Set<Role> roles = new HashSet<>();
+		  
+	     Role userRole = roleRepository.findByRoleName(ERole.ROLE_USER).get();
+	     roles.add(userRole);
+	     u.setRoles(roles);   
+		return userRepository.save(u);
+		}
     
 }
