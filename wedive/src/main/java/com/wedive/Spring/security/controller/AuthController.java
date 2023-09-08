@@ -3,7 +3,6 @@ package com.wedive.Spring.security.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +14,7 @@ import com.wedive.Spring.security.payload.RegisterDto;
 import com.wedive.Spring.security.payload.RegisterResponse;
 import com.wedive.Spring.security.service.AuthService;
 
-
+// AUTHENTICATION CONTROLLER ONLY
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)

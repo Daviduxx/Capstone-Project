@@ -8,7 +8,6 @@ import lombok.ToString;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -39,8 +38,6 @@ public class User {
     private String password; 
     private LocalDateTime date; // data di registrazione
     @Column(nullable = false, unique = true)
-   
-    
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
@@ -95,16 +92,18 @@ public class User {
 		this.divingCenter = divingCenter;
 	}
     
-	public void setBirthday(String birthday) {
-		
-		try {
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-			LocalDate localDate = LocalDate.parse(birthday);			
-			
-		} catch(Exception e) {
-			System.out.println("La data inserita non è valida!" + e.getMessage());
-		}	
-	}
+	//tecnicamente non dovrebbe più servire
+//	public void setBirthday(String birthday) {
+//		
+//		try {
+//			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//			LocalDate localDate = LocalDate.parse(birthday);			
+//			
+//		} catch(Exception e) {
+//			System.out.println("La data inserita non è valida!" + e.getMessage());
+//		}	
+//	}
+	
 	public void setDives(Set<Dive> dives) {
 		this.dives = dives;
 		

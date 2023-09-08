@@ -2,7 +2,6 @@ package com.wedive.Spring.security.payload;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.Set;
 
 import com.wedive.Spring.security.entity.Address;
@@ -11,14 +10,6 @@ import com.wedive.Spring.security.entity.DivingCenter;
 import com.wedive.Spring.security.entity.Licence;
 import com.wedive.Spring.security.entity.Role;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
