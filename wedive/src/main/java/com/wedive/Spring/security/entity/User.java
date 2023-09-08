@@ -18,7 +18,7 @@ import java.util.Set;
 @Entity
 @Table(name = "users", uniqueConstraints = { @UniqueConstraint(columnNames = "username"),
 		@UniqueConstraint(columnNames = "email") })
-public class User {
+public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,6 +36,7 @@ public class User {
     private String phoneNumber;
     @Column(nullable = false)
     private String password; 
+    @Column(nullable = false)
     private LocalDateTime date; // data di registrazione
     @Column(nullable = false, unique = true)
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
@@ -49,8 +50,8 @@ public class User {
     private Address address;
     @OneToMany
     private Set<Licence> licences = new HashSet<>();
-    @ManyToOne
-    private DivingCenter divingCenter;
+//    @ManyToOne
+//    private DivingCenter divingCenter;
     @OneToMany(mappedBy="user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Dive> dives;
     
@@ -88,9 +89,7 @@ public class User {
 	public void setLicences(Set<Licence> licences) {
 		this.licences = licences;
 	}
-	public void setDivingCenter(DivingCenter divingCenter) {
-		this.divingCenter = divingCenter;
-	}
+
     
 	//tecnicamente non dovrebbe più servire
 //	public void setBirthday(String birthday) {
@@ -108,6 +107,10 @@ public class User {
 		this.dives = dives;
 		
 	}
+//	public void setDivingCenter(DivingCenter divingCenter2) {
+//		// TODO Auto-generated method stub
+//		
+//	}
     
     
 }

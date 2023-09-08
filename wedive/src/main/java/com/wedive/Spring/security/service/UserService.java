@@ -8,11 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.wedive.Spring.security.entity.Address;
 import com.wedive.Spring.security.entity.Dive;
 import com.wedive.Spring.security.entity.ERole;
 import com.wedive.Spring.security.entity.Role;
 import com.wedive.Spring.security.entity.User;
 import com.wedive.Spring.security.payload.UpdateDTO;
+import com.wedive.Spring.security.repository.AddressRepository;
 import com.wedive.Spring.security.repository.RoleRepository;
 import com.wedive.Spring.security.repository.UserRepository;
 
@@ -25,6 +27,7 @@ public class UserService {
 	
 	@Autowired private UserRepository uRepo;
 	@Autowired private RoleRepository roleRepository;
+	@Autowired private AddressRepository addRepo;
 	@Autowired private PasswordEncoder passwordEncoder;
 	
 	
@@ -56,10 +59,10 @@ public class UserService {
 		 exUser.setUsername(uDto.getUsername());
 		 exUser.setBirthday(uDto.getBirthday());
 		 exUser.setPhoneNumber(uDto.getPhoneNumber());
-		 exUser.setDate(uDto.getDate());
+		// exUser.setDate(uDto.getDate());
 		 exUser.setPassword(passwordEncoder.encode(uDto.getPassword()));
-		 exUser.setAddress(uDto.getAddress());
-		 exUser.setDivingCenter(uDto.getDivingCenter());
+		 //exUser.setAddress(uDto.getAddress());
+		// exUser.setDivingCenter(uDto.getDivingCenter());
 		 exUser.setLicences(uDto.getLicences());
 		 
 		 //ROLES
@@ -72,6 +75,11 @@ public class UserService {
 	     Set<Dive> dives = uDto.getDives();
 	     dives.forEach(d -> d.setUser(exUser));
 	     exUser.setDives(dives);
+	     
+	     Address address = uDto.getAddress();
+	     if(address != null) {
+	    	 addRepo.save(address);
+	    	 exUser.setAddress(address);	     }
 	     
 	     return uRepo.save(exUser);
 		}
