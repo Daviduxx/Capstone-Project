@@ -103,3 +103,52 @@ public class Dive {
 }
 
 
+// (COMPLETO) JSON DA PASSARE AL CLIEN PER AGGIUNGERE UNA IMMERSIONE
+
+/*
+{   
+    "id": 1,
+    "name": "pippo",
+    "surname": "baudo",
+    "birthday": "1977-04-29",
+    "username": "pbaudo1",
+    "email": "pippo.baudo1@gmail.com",
+    "password": "qwerty",
+    "dives": [
+        {   
+            "id": 1,
+            "name": "immersione1",
+            "date": null,
+            "type": "BOAR",
+            "maxDepth": 18.00,
+            "diveTime": 60,
+            "waterType": "OCEAN",
+            "waterTaste": "SALTY_WATER",
+            "weather": "SUNNY",
+            "airTemperature": 27.00,
+            "surfaceTemperature": 25.00,
+            "deepTemperature": 18.00,
+            "visibility": "GOOD",
+            "waves": "NONE",
+            "current": "NONE",
+            "suit": "NONE",
+            "ballast": 6,
+            "tank": "ALUMINUM",
+            "tankSize": 12,
+            "gasMix": "AIR",
+            "initialPressure": 250,
+            "finalPressure": 50,
+            "usedAir": 150,
+            "judgement": "GOOD",
+            "notes": "lorem ipsum",
+            "buddy": "jerry",
+            "user": {
+                "id": 1
+            }
+        }
+    ]
+}
+
+*/
+
+
