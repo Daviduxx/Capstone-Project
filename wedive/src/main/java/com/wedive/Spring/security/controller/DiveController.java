@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wedive.Spring.security.entity.Dive;
 import com.wedive.Spring.security.entity.User;
+import com.wedive.Spring.security.payload.UpdateDTO;
 import com.wedive.Spring.security.service.AuthServiceImpl;
 import com.wedive.Spring.security.service.DiveService;
 
@@ -29,7 +30,7 @@ public class DiveController {
 	@Autowired private AuthServiceImpl as;
 	
 	@PatchMapping("/add/{id}")
-	public ResponseEntity<?> addDive(@PathVariable Long id, @RequestBody User u){
+	public ResponseEntity<?> addDive(@PathVariable Long id, @RequestBody UpdateDTO u){
 		System.out.println(u);
 		User user = as.update(id, u);
 		return new ResponseEntity<User>(user, HttpStatus.OK);

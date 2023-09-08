@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDate;
@@ -25,9 +24,11 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
     private String surname;
-    @Column(nullable = true)
+    @Column(nullable = false)
     private LocalDate birthday;
     @Column(nullable = false, unique = true)
     private String username;
@@ -35,8 +36,7 @@ public class User {
     private String email;
     private String phoneNumber;
     @Column(nullable = false)
-    private String password;
-    // Parametri aggiuntivi
+    private String password; 
     private LocalDateTime date; // data di registrazione
     @Column(nullable = false, unique = true)
    
@@ -104,6 +104,10 @@ public class User {
 		} catch(Exception e) {
 			System.out.println("La data inserita non è valida!" + e.getMessage());
 		}	
+	}
+	public void setDives(Set<Dive> dives) {
+		this.dives = dives;
+		
 	}
     
     
