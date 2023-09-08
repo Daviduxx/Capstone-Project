@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,7 @@ import com.wedive.Spring.security.entity.User;
 import com.wedive.Spring.security.payload.UpdateDTO;
 import com.wedive.Spring.security.service.UserService;
 
-// USERS CONTROLLER FOR HTTP REQUESTS
+// USERS CONTROLLER FOR HTTP REQUESTS (POST REQUESTS ARE HANDLED BY AUTHCONTROLLER.JAVA)
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -40,6 +41,11 @@ public class UserController {
 		public ResponseEntity<?> addDive(@PathVariable Long id, @RequestBody UpdateDTO u){
 			User user = uSvc.update(id, u);
 			return new ResponseEntity<User>(user, HttpStatus.OK);
+		}
+		
+		@DeleteMapping("/delete/{id}")
+		public ResponseEntity<String> deleteById(@PathVariable Long id){
+			return new ResponseEntity<String>(uSvc.deleteById(id), HttpStatus.OK);
 		}
 		
 	}

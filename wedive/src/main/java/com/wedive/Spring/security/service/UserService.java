@@ -18,13 +18,12 @@ import com.wedive.Spring.security.repository.UserRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
-// HTTP REQUESTS FOR USER ENTITY
+// HTTP REQUESTS FOR USER ENTITY (POST REQUESTS ARE HANDLED BY AUTHSERVICE.JAVA)
 
 @Service
 public class UserService {
 	
 	@Autowired private UserRepository uRepo;
-	@Autowired private UserRepository userRepository;
 	@Autowired private RoleRepository roleRepository;
 	@Autowired private PasswordEncoder passwordEncoder;
 	
@@ -46,10 +45,10 @@ public class UserService {
 	
     public User update(Long id, UpdateDTO uDto) {
     	//CHECKS
-		if(!userRepository.existsById(id))
+		if(!uRepo.existsById(id))
 			throw new EntityNotFoundException("This user doesn't exists!");
 		
-		 User exUser = userRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("This user doesn't exists!"));
+		 User exUser = uRepo.findById(id).orElseThrow(() -> new EntityNotFoundException("This user doesn't exists!"));
 		 
 		 exUser.setName(uDto.getName());
 		 exUser.setSurname(uDto.getSurname());
@@ -74,8 +73,19 @@ public class UserService {
 	     dives.forEach(d -> d.setUser(exUser));
 	     exUser.setDives(dives);
 	     
-	     return userRepository.save(exUser);
+	     return uRepo.save(exUser);
 		}
+    
+    	//DELETE REQUESTS
+    
+    	public String deleteById(Long id) {
+    		//CHECKS
+    		if(!uRepo.existsById(id))
+    			throw new EntityNotFoundException("This user doesn't exists!");
+    		
+    		uRepo.deleteById(id);
+    		return "User successfully deleted!";
+    	}
 	
 
 }
