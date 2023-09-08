@@ -23,6 +23,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -59,7 +60,7 @@ public class Dive {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
 	private Weather weather;
-    @Column(nullable = false)
+    @Column(nullable = true)
 	private Double airTemperature;
     @Column(nullable = false)
 	private Double surfaceTemperature;
@@ -96,7 +97,8 @@ public class Dive {
 	@Column(nullable = false)
 	private Boolean certified = false;
 	@JsonIgnore
-	@ManyToOne(optional = false, fetch=FetchType.LAZY)
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "user_id")
 	private User user;
 }
 

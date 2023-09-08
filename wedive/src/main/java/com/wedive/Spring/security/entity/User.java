@@ -54,7 +54,7 @@ public class User {
     private Set<Licence> licences = new HashSet<>();
     @ManyToOne
     private DivingCenter divingCenter;
-    @OneToMany(mappedBy="user", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy="user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Dive> dives;
     
     

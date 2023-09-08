@@ -131,7 +131,10 @@ public class AuthServiceImpl implements AuthService {
 	     Role userRole = roleRepository.findByRoleName(ERole.ROLE_USER).get();
 	     roles.add(userRole);
 	     u.setRoles(roles);   
-		return userRepository.save(u);
+	     
+	     Set<Dive> dives = u.getDives();
+	     dives.forEach(d -> d.setUser(u));
+	     return userRepository.save(u);
 		}
     
 }
