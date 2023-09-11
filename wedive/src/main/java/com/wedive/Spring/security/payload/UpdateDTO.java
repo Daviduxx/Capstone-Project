@@ -31,7 +31,7 @@ import lombok.ToString;
 		    private String phoneNumber;		    
 		    private String password; 
 		    private LocalDateTime date; 	
-		    private Set<Role> roles;		   
+		    private Set<String> roles;		   
 		    private Address address;		   
 		    private Set<Licence> licences;		 
 		    private DivingCenter divingCenter;		    

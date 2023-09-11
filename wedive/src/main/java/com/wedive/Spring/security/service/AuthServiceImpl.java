@@ -117,39 +117,6 @@ public class AuthServiceImpl implements AuthService {
     	else if(role.equals("MODERATOR")) return ERole.ROLE_MODERATOR;
     	else return ERole.ROLE_USER;
     }
-    
-    //TECNICAMENTE SI PUò ELIMINARE
-//    public User update(Long id, UpdateDTO uDto) {
-//		if(!userRepository.existsById(id))
-//			throw new EntityNotFoundException("This user doesn't exists!");
-//		
-//		 User exUser = userRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("This user doesn't exists!"));
-//		 
-//		 exUser.setName(uDto.getName());
-//		 exUser.setSurname(uDto.getSurname());
-//		 exUser.setEmail(uDto.getEmail());
-//		 exUser.setUsername(uDto.getUsername());
-//		 exUser.setBirthday(uDto.getBirthday());
-//		 exUser.setPhoneNumber(uDto.getPhoneNumber());
-//		 exUser.setDate(uDto.getDate());
-//		 exUser.setPassword(passwordEncoder.encode(uDto.getPassword()));
-//		 exUser.setAddress(uDto.getAddress());
-//		 exUser.setDivingCenter(uDto.getDivingCenter());
-//		 exUser.setLicences(uDto.getLicences());
-//		 
-////		 uDto.setPassword(passwordEncoder.encode(uDto.getPassword()));
-//		 Set<Role> roles = new HashSet<>();
-//		  
-//	     Role userRole = roleRepository.findByRoleName(ERole.ROLE_USER).get();
-//	     roles.add(userRole);
-//	     exUser.setRoles(roles);   
-//	     
-//	     Set<Dive> dives = uDto.getDives();
-//	     System.out.println(dives);
-//	     dives.forEach(d -> d.setUser(exUser));
-//	     exUser.setDives(dives);
-//	     
-//	     return userRepository.save(exUser);
-//		}
+   
     
 }

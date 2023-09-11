@@ -67,7 +67,11 @@ public class UserService {
 		 
 		 //ROLES
 		 Set<Role> roles = new HashSet<>();	  
-	     Role userRole = roleRepository.findByRoleName(ERole.ROLE_USER).get();
+		 Role userRole = null;
+		 if(uDto.getRoles().equals("ADMIN")) userRole = roleRepository.findByRoleName(ERole.ROLE_ADMIN).get();
+	    	else if(uDto.getRoles().equals("MODERATOR")) userRole = roleRepository.findByRoleName(ERole.ROLE_MODERATOR).get();
+	    	else userRole = roleRepository.findByRoleName(ERole.ROLE_USER).get();
+	    // Role userRole = roleRepository.findByRoleName(ERole.ROLE_USER).get();
 	     roles.add(userRole);
 	     exUser.setRoles(roles);   
 	     
