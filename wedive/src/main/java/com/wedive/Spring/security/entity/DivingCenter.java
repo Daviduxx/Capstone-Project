@@ -17,8 +17,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity
-@Table
+//@Entity
+//@Table
 public class DivingCenter{
 	
 	@Id

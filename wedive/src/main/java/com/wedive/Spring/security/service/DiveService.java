@@ -1,5 +1,6 @@
 package com.wedive.Spring.security.service;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,8 @@ import jakarta.persistence.EntityNotFoundException;
 public class DiveService {
 	
 	@Autowired private DiveDAO diveRepo;
-	
-	public Dive create(Dive d) {
-		return diveRepo.save(d);
-	}
+
+	// GET REQUESTS 
 	
 	public Dive getById(Long id) {
 		if(!diveRepo.existsById(id))
@@ -26,9 +25,11 @@ public class DiveService {
 		return diveRepo.findById(id).get();
 	}
 	
-	public Set<Dive> getAllDives(){
-		return (Set<Dive>) diveRepo.findAll();
+	public List<Dive> getAllDives(){
+		return (List<Dive>) diveRepo.findAll();
 	}
+	
+	// DELETE REQUESTS
 	
 	public String delete(Long id) {
 		if(!diveRepo.existsById(id))
@@ -36,6 +37,8 @@ public class DiveService {
 		diveRepo.deleteById(id);
 		return "Dive deleted succesfully!";
 	}
+	
+	// PUT REQUESTS
 	
 	public Dive update(Long id, Dive d) {
 		if(!diveRepo.existsById(id) || d.getId() != id)
