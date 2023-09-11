@@ -26,11 +26,11 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	private String address;
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false)
 	private String postalCode;
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false)
 	private String city;
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false)
 	private String state;
 //	@OneToMany(mappedBy = "address", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 //	private Set<User> user;
