@@ -46,7 +46,7 @@ public class User{
     )
     private Set<Role> roles = new HashSet<>();
   
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Address address;
     @OneToMany
     private Set<Licence> licences = new HashSet<>();
