@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/auth.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit{
+export class RegisterComponent implements OnInit {
 
   signup!: FormGroup;
   error: undefined | string;
@@ -52,7 +52,6 @@ ngOnInit(): void {
   );
 }
 
-
 onSubmit() {
   if(this.signup.value.name !== null
     && this.signup.value.surname !== null
@@ -77,4 +76,5 @@ onSubmit() {
           console.error(this.error);
         }
     }
+
 }
