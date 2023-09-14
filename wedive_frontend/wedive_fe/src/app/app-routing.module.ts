@@ -4,9 +4,16 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/homepage',
+    pathMatch: 'full',
+  },
+  {
     path: 'join',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
-  }
+  },
+  { path: 'homepage',
+    loadChildren: () => import('./homepage/homepage.module').then(m => m.HomepageModule) }
 ];
 
 @NgModule({
