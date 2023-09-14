@@ -1,0 +1,45 @@
+@import '../partials/variables';
+
+// reusable scss
+
+@mixin flex($direction, $justify, $items){
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $items;
+}
+
+@mixin border($border){
+  border: $border solid transparent;
+  border-radius: $border-radius;
+}
+
+@mixin background{
+  background: rgb(133,14,161);
+background: linear-gradient(193deg, rgba(133,14,161,1) 0%, rgba(14,41,154,1) 99%);
+}
+
+@mixin dark-background{
+background: rgb(69,8,83);
+background: linear-gradient(193deg, rgb(106, 33, 122) 0%, rgb(27, 40, 98) 99%);
+}
+
+@mixin text($size, $weight){
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: $white;
+  font-size: $size;
+  font-weight: $weight;
+  text-align: center;
+}
+
+@mixin button{
+  background-color: $orange;
+  @include border(0px);
+  @include text(2rem, 900);
+  padding: 10px 60px;
+}
+
+@mixin h1{
+  font-size: $big;
+  font-weight: 900;
+}
