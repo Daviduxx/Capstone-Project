@@ -3,6 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const routes: Routes = [
+  {
+    path: 'join',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  }
 ];
 
 @NgModule({
