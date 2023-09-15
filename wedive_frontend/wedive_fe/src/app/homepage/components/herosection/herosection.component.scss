@@ -8,8 +8,11 @@
   background-size: cover;
   height: 100vh;
   @include flex(column, center, flex-start);
-  padding: 4rem;
+  padding: 6rem;
+  .box{
+    max-width: 500px
+  }
   h1{
-    font-size: $big;
+    @include h1;
   }
 }

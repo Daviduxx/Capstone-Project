@@ -41,5 +41,7 @@ background: linear-gradient(193deg, rgb(106, 33, 122) 0%, rgb(27, 40, 98) 99%);
 
 @mixin h1{
   font-size: $big;
-  font-weight: 900;
+  font-weight: 700;
+  color: var(--indigo-50);
+  letter-spacing: 20px;
 }
