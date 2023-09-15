@@ -6,12 +6,14 @@ import { HomepageComponent } from './homepage.component';
 import { HerosectionComponent } from './components/herosection/herosection.component';
 import { UikitModule } from '../uikit/uikit.module';
 import { MenubarComponent } from '../uikit/menubar/menubar.component';
+import { FeaturesComponent } from './components/features/features.component';
 
 
 @NgModule({
   declarations: [
     HomepageComponent,
-    HerosectionComponent
+    HerosectionComponent,
+    FeaturesComponent
   ],
   imports: [
     CommonModule,

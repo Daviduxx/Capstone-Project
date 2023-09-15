@@ -2,15 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenubarComponent } from './menubar/menubar.component';
 import { MenubarModule } from 'primeng/menubar';
+import { FooterComponent } from './footer/footer.component';
+import { Footer } from 'primeng/api';
 
 
 
 @NgModule({
   declarations: [
-    MenubarComponent
+    MenubarComponent,
+    FooterComponent
   ],
   exports: [
-    MenubarComponent
+    MenubarComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
