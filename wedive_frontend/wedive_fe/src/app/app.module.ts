@@ -16,7 +16,7 @@ import { MenubarModule } from 'primeng/menubar';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MenubarModule
+    MenubarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

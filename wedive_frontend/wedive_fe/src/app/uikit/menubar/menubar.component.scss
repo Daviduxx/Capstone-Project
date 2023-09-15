@@ -1,0 +1,27 @@
+:host::ng-deep{
+  .p-menubar{
+    display: flex;
+    justify-content: space-between;
+    .p-menubar-end{
+      margin: 0;
+      display: none;
+    }
+
+    .p-menubar-button{
+      width: 30%;
+      position: absolute !important;
+      right: 0px;
+      top: 15px;
+    }
+    // p-menubarsub{
+    //   width: 30%;
+    //   position: absolute;
+    //   right: 12px;
+    //   top: 65px;
+    // }
+  }
+
+}
+
+
+
