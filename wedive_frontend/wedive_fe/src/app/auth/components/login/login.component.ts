@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit{
 
   login!: FormGroup;
   error: undefined | string;
+  user: any;
 
   ngOnInit(): void {
 
@@ -39,8 +40,9 @@ export class LoginComponent implements OnInit{
         resp => {
           console.log(resp);
           this.error = undefined;
+          this.user = resp;
           localStorage.setItem('userLogin', JSON.stringify(resp));
-          this.router.navigate(['/profilo'])
+          this.router.navigate(['/profilo', this.user.username])
         }, err => {
           console.log(err.error.message);
           this.error = err.error.message;

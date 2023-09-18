@@ -5,7 +5,9 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { UikitModule } from "../uikit/uikit.module";
 import { HeadingComponent } from './components/heading/heading.component';
-
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
+import { BadgeModule } from 'primeng/badge';
 
 @NgModule({
     declarations: [
@@ -15,7 +17,10 @@ import { HeadingComponent } from './components/heading/heading.component';
     imports: [
         CommonModule,
         ProfileRoutingModule,
-        UikitModule
+        UikitModule,
+        AvatarModule,
+        AvatarGroupModule,
+        BadgeModule
     ]
 })
 export class ProfileModule { }

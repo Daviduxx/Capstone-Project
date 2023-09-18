@@ -16,8 +16,8 @@ const routes: Routes = [
   { path: 'homepage',
     loadChildren: () => import('./homepage/homepage.module').then(m => m.HomepageModule) },
   { path: 'profilo',
-    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule),
-    canActivate: [guardGuard]
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
+    // canActivate: [guardGuard]
   }
 ];
 
