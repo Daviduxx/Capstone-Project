@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { guardGuard } from './auth/guard/guard.guard';
 
 
 const routes: Routes = [
@@ -13,7 +14,11 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   { path: 'homepage',
-    loadChildren: () => import('./homepage/homepage.module').then(m => m.HomepageModule) }
+    loadChildren: () => import('./homepage/homepage.module').then(m => m.HomepageModule) },
+  { path: 'profilo',
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule),
+    canActivate: [guardGuard]
+  }
 ];
 
 @NgModule({

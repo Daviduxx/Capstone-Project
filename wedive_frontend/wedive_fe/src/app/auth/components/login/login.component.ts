@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit{
 
-  constructor( private aSvc: AuthService) {}
+  constructor( private aSvc: AuthService, private router: Router) {}
 
   login!: FormGroup;
   error: undefined | string;
@@ -39,6 +40,7 @@ export class LoginComponent implements OnInit{
           console.log(resp);
           this.error = undefined;
           localStorage.setItem('userLogin', JSON.stringify(resp));
+          this.router.navigate(['/profilo'])
         }, err => {
           console.log(err.error.message);
           this.error = err.error.message;

@@ -9,6 +9,8 @@ import { ILogin } from '../interfaces/i-login';
 })
 export class AuthService {
 
+  isLoggedIn: boolean = false;
+
   SIGNUP_API: string = environment.SIGNUP;
   LOGIN_API: string = environment.LOGIN;
 
@@ -21,6 +23,16 @@ export class AuthService {
 
   login(user: ILogin){
     console.log(user);
+    this.isLoggedIn = true;
+    console.log(this.isLoggedIn);
     return this.http.post(this.LOGIN_API, user);
+  }
+
+  isAuth(){
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(this.isLoggedIn)
+      }, 1000)
+    })
   }
 }
