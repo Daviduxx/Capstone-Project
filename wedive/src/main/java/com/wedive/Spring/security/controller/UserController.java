@@ -33,10 +33,15 @@ public class UserController {
 			return new ResponseEntity<List<User>>(uSvc.getAllUsers(), HttpStatus.OK);
 		}
 		
-		@GetMapping("/get/{id}")
+		@GetMapping("/getbyid/{id}")
 		@PreAuthorize("isAuthenticated()")
 		public ResponseEntity<?> getById(@PathVariable Long id){
 			return new ResponseEntity<User>(uSvc.getUserById(id), HttpStatus.OK);
+		}
+		
+		@GetMapping("/getbyuser/{un}")
+		public ResponseEntity<User> getUserByUsername(@PathVariable String un){
+			return new ResponseEntity<User>(uSvc.getuserByUsername(un), HttpStatus.OK);
 		}
 		
 		@PatchMapping("/put/{id}")

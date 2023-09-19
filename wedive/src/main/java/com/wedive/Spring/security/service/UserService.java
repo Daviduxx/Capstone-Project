@@ -44,6 +44,13 @@ public class UserService {
 		return uRepo.findById(id).get();
 	}
 	
+	public User getuserByUsername(String un) {
+		if(!uRepo.existsByUsername(un)) {
+			throw new EntityNotFoundException("This user doesn't exists!");
+		}
+		return uRepo.findByUsername(un).get();
+		}
+	
 	// PUT REQUESTS
 	
     public User update(Long id, UpdateDTO uDto) {
