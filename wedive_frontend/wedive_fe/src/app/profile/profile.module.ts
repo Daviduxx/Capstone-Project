@@ -6,6 +6,7 @@ import { ProfileComponent } from './profile.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
+import { ImageModule } from 'primeng/image';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
     CommonModule,
     ProfileRoutingModule,
     AvatarGroupModule,
-    AvatarModule
+    AvatarModule,
+    ImageModule
   ]
 })
 export class ProfileModule { }

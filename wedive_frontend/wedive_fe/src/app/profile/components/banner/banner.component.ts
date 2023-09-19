@@ -5,6 +5,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { UserService } from '../../user.service';
 import { ActivatedRoute } from '@angular/router';
+import { ImageModule } from 'primeng/image';
 
 @Component({
   selector: 'app-banner',
