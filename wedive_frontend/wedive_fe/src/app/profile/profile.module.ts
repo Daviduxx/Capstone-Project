@@ -7,12 +7,16 @@ import { BannerComponent } from './components/banner/banner.component';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { ImageModule } from 'primeng/image';
+import { RecentsComponent } from './components/recents/recents.component';
+import { TagModule } from 'primeng/tag';
+import { Button, ButtonModule } from 'primeng/button';
 
 
 @NgModule({
   declarations: [
     ProfileComponent,
-    BannerComponent
+    BannerComponent,
+    RecentsComponent
 
   ],
   imports: [
@@ -20,7 +24,9 @@ import { ImageModule } from 'primeng/image';
     ProfileRoutingModule,
     AvatarGroupModule,
     AvatarModule,
-    ImageModule
+    ImageModule,
+    TagModule,
+    ButtonModule
   ]
 })
 export class ProfileModule { }

@@ -11,7 +11,7 @@
     background-size: cover;
   }
   #flexContainer{
-    position: absolute;
+    transform: translateY(-80px);
     @include flex(row, space-between, center);
     width: 100%;
     top: 170px;

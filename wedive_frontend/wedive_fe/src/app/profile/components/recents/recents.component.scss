@@ -1,0 +1,14 @@
+@import '../../../scss/partials/variables';
+@import '../../../scss/partials/mixins';
+
+
+#cardContainer{
+  @include flex(row, flex-start, center);
+  flex-wrap: wrap;
+  .myCard{
+    border: 2px solid var(--surface-border);
+    height: 300px;
+    @include flex(column, space-between, flex-start);
+    margin: 15px 30px;
+  }
+}
