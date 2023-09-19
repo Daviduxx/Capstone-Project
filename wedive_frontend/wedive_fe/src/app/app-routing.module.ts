@@ -14,11 +14,7 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   { path: 'homepage',
-    loadChildren: () => import('./homepage/homepage.module').then(m => m.HomepageModule) },
-  { path: 'profilo',
-    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
-    // canActivate: [guardGuard]
-  }
+    loadChildren: () => import('./homepage/homepage.module').then(m => m.HomepageModule) }
 ];
 
 @NgModule({

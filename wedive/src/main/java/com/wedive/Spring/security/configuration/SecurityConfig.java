@@ -69,6 +69,7 @@ public class SecurityConfig {
     	.csrf(csrf -> csrf.disable())
         .authorizeHttpRequests((authorize) -> authorize
         		.requestMatchers(HttpMethod.GET, "/join/**").permitAll()
+        		.requestMatchers(HttpMethod.GET, "/users/**").permitAll()
                 .requestMatchers("/join/auth/**").permitAll()
                 .anyRequest().authenticated())
         .exceptionHandling( exception -> exception

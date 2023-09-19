@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit{
           this.error = undefined;
           this.user = resp;
           localStorage.setItem('userLogin', JSON.stringify(resp));
-          this.router.navigate(['/profilo', this.user.username])
+
         }, err => {
           console.log(err.error.message);
           this.error = err.error.message;
