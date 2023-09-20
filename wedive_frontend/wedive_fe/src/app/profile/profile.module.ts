@@ -11,7 +11,13 @@ import { RecentsComponent } from './components/recents/recents.component';
 import { TagModule } from 'primeng/tag';
 import { Button, ButtonModule } from 'primeng/button';
 import { AddComponent } from './components/add/add.component';
-
+import { DropdownModule } from 'primeng/dropdown';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { KnobModule } from 'primeng/knob';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -28,7 +34,14 @@ import { AddComponent } from './components/add/add.component';
     AvatarModule,
     ImageModule,
     TagModule,
-    ButtonModule
+    ButtonModule,
+    DropdownModule,
+    ReactiveFormsModule,
+    InputNumberModule,
+    SelectButtonModule,
+    KnobModule,
+    InputTextareaModule,
+    InputTextModule
   ]
 })
 export class ProfileModule { }
