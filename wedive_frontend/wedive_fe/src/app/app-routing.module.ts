@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { guardGuard } from './auth/guard/guard.guard';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,10 @@ const routes: Routes = [
   },
   { path: 'homepage',
     loadChildren: () => import('./homepage/homepage.module').then(m => m.HomepageModule) },
-  { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) }
+  {
+    path: 'profile/:username',
+    component: ProfileComponent,
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) }
 ];
 
 @NgModule({

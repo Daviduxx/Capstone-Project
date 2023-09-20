@@ -10,13 +10,15 @@ import { ImageModule } from 'primeng/image';
 import { RecentsComponent } from './components/recents/recents.component';
 import { TagModule } from 'primeng/tag';
 import { Button, ButtonModule } from 'primeng/button';
+import { AddComponent } from './components/add/add.component';
 
 
 @NgModule({
   declarations: [
     ProfileComponent,
     BannerComponent,
-    RecentsComponent
+    RecentsComponent,
+    AddComponent
 
   ],
   imports: [

@@ -2,81 +2,28 @@
 
 <div id="cardContainer" class="p-4">
 
-  <div class="myCard p-3">
+  <div class="myCard p-3" *ngFor="let dive of dives">
     <div class="cardHeader">
-      <h3 class="text-2xl">Immersione n. X</h3>
+      <h3 class="text-2xl">{{dive.name}}</h3>
     </div>
     <div class="cardBody">
-      <p class="text-base text-700">Max Depth: <span class="text-white">18m</span></p>
-      <p class="text-base text-700">Used Air: <span class="text-white">150 bar</span></p>
-      <p class="text-base text-700">Date: <span class="text-white">24/09/2022</span></p>
+      <p class="text-base text-700">Max Depth: <span class="text-white">{{dive.maxDepth}}</span></p>
+      <p class="text-base text-700">Used Air: <span class="text-white">{{dive.usedAir}}</span></p>
+      <p class="text-base text-700">Date: <span class="text-white">{{dive.date}}</span></p>
     </div>
       <div class="cardFooter flex gap-2">
-        <p-tag severity="success" value="Certified" [rounded]="true"></p-tag>
-        <p-tag severity="warning" value="Certification in progress" [rounded]="true"></p-tag>
-        <p-tag severity="danger" value="Refused" [rounded]="true"></p-tag>
+        <p-tag severity="success" value="Certified" [rounded]="true" *ngIf="dive.certified" ></p-tag>
+        <!-- <p-tag severity="warning" value="Certification in progress" [rounded]="true"></p-tag> -->
+        <p-tag severity="danger" value="Refused" [rounded]="true" *ngIf="!dive.certified"></p-tag>
     </div>
     <div class="cardButton">
       <p-button label="View Details" styleClass="p-button-outlined"></p-button>
   </div>
   </div>
 
-  <div class="myCard p-3">
-    <div class="cardHeader">
-      <h3 class="text-2xl">Immersione n. X</h3>
-    </div>
-    <div class="cardBody">
-      <p class="text-base text-700">Max Depth: <span class="text-white">18m</span></p>
-      <p class="text-base text-700">Used Air: <span class="text-white">150 bar</span></p>
-      <p class="text-base text-700">Date: <span class="text-white">24/09/2022</span></p>
-    </div>
-      <div class="cardFooter flex gap-2">
-        <p-tag severity="success" value="Certified" [rounded]="true"></p-tag>
-        <p-tag severity="warning" value="Certification in progress" [rounded]="true"></p-tag>
-        <p-tag severity="danger" value="Refused" [rounded]="true"></p-tag>
-    </div>
-    <div class="cardButton">
-      <p-button label="View Details" styleClass="p-button-outlined"></p-button>
-  </div>
-  </div>
 
-  <div class="myCard p-3">
-    <div class="cardHeader">
-      <h3 class="text-2xl">Immersione n. X</h3>
-    </div>
-    <div class="cardBody">
-      <p class="text-base text-700">Max Depth: <span class="text-white">18m</span></p>
-      <p class="text-base text-700">Used Air: <span class="text-white">150 bar</span></p>
-      <p class="text-base text-700">Date: <span class="text-white">24/09/2022</span></p>
-    </div>
-      <div class="cardFooter flex gap-2">
-        <p-tag severity="success" value="Certified" [rounded]="true"></p-tag>
-        <p-tag severity="warning" value="Certification in progress" [rounded]="true"></p-tag>
-        <p-tag severity="danger" value="Refused" [rounded]="true"></p-tag>
-    </div>
-    <div class="cardButton">
-      <p-button label="View Details" styleClass="p-button-outlined"></p-button>
-  </div>
-  </div>
-
-  <div class="myCard p-3">
-    <div class="cardHeader">
-      <h3 class="text-2xl">Immersione n. X</h3>
-    </div>
-    <div class="cardBody">
-      <p class="text-base text-700">Max Depth: <span class="text-white">18m</span></p>
-      <p class="text-base text-700">Used Air: <span class="text-white">150 bar</span></p>
-      <p class="text-base text-700">Date: <span class="text-white">24/09/2022</span></p>
-    </div>
-      <div class="cardFooter flex gap-2">
-        <p-tag severity="success" value="Certified" [rounded]="true"></p-tag>
-        <p-tag severity="warning" value="Certification in progress" [rounded]="true"></p-tag>
-        <p-tag severity="danger" value="Refused" [rounded]="true"></p-tag>
-    </div>
-    <div class="cardButton">
-      <p-button label="View Details" styleClass="p-button-outlined"></p-button>
-  </div>
-  </div>
 
 
 </div>
+
+{{ dives | json }}

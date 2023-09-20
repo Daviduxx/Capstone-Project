@@ -1,3 +1,4 @@
+
 <div id="container">
   <div id="bannerImg">
   </div>
@@ -8,13 +9,17 @@
         <div class="flex justify-content-center">
           <p-image src="https://primefaces.org/cdn/primeng/images/galleria/galleria1.jpg" alt="Image" width="130" height="130" imageClass="border-circle"></p-image>
       </div>
-        <h2 class="text-4xl font-semibold">Pippo Baudo</h2>
-        <h4 class="text-base font-light text-500">@pippobaudo1</h4>
+      <div>
+        <h2 class="text-4xl font-semibold inline">{{ user?.name}} </h2>
+        <h2 class="text-4xl font-semibold inline">{{ user?.surname}}</h2>
+        <h4 class="text-base font-light text-500">@{{ user?.username }}</h4>
+      </div>
       </div>
     </div>
 
-    <div id="settings">
+    <div id="settings" class="flex">
       <div>
+        <p-button label="Add dive" styleClass="p-button-outlined" [routerLink]="['add']"></p-button>
         <i class="pi pi-bell text-2xl text-blue-700 hover:text-cyan-500 mx-2" pBadge value="2"></i>
         <i class="pi pi-cog text-2xl text-blue-700 hover:text-cyan-500 mx-2"></i>
     </div>

@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { UserService } from '../../user.service';
 import { ActivatedRoute } from '@angular/router';
 import { ImageModule } from 'primeng/image';
+import { iUser } from 'src/app/interfaces/iuser';
 
 @Component({
   selector: 'app-banner',
@@ -16,13 +17,16 @@ export class BannerComponent implements OnInit{
 
  constructor( private uSvc: UserService, private route: ActivatedRoute) { }
 
- username: string | null = null
+username: string | null = null;
+user: iUser | null = null;
 
   ngOnInit(): void {
     this.username = this.route.snapshot.params['username'];
+    console.log(this.username)
     this.uSvc.getUser(this.username).subscribe(
       resp => {
         console.log(resp);
+        this.user = resp;
       }
     )
   }

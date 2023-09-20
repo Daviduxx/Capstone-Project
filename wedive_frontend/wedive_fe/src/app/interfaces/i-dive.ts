@@ -1,33 +1,4 @@
-export interface iUser {
-  id: number
-  name: string
-  surname: string
-  birthday: string
-  username: string
-  email: string
-  phoneNumber: string
-  password: string
-  date: string
-  roles: Role[]
-  address: Address
-  licences: any[]
-  dives: Dfe[]
-}
-
-export interface Role {
-  id: number
-  roleName: string
-}
-
-export interface Address {
-  id: number
-  address: string
-  postalCode: string
-  city: string
-  state: string
-}
-
-export interface Dfe {
+export interface iDives {
   id: number
   name: string
   date: any
