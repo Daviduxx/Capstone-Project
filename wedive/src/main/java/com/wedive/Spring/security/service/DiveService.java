@@ -1,5 +1,6 @@
 package com.wedive.Spring.security.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
@@ -7,7 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wedive.Spring.security.entity.Dive;
+import com.wedive.Spring.security.entity.User;
+import com.wedive.Spring.security.payload.DiveDto;
 import com.wedive.Spring.security.repository.DiveDAO;
+import com.wedive.Spring.security.repository.UserRepository;
 
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
@@ -16,6 +20,7 @@ import jakarta.persistence.EntityNotFoundException;
 public class DiveService {
 	
 	@Autowired private DiveDAO diveRepo;
+	@Autowired private UserRepository uRepo;
 
 	// GET REQUESTS 
 	
@@ -47,5 +52,39 @@ public class DiveService {
 			throw new EntityExistsException("A dive with this name already exists! Please change name");
 		return diveRepo.save(d);
 		}
+	
+	public String addDive(DiveDto d, Long id) {
+		Dive dive = new Dive();
+		User u = uRepo.getById(id);
+		dive.setName(d.getName());
+		dive.setDate(LocalDate.now());
+		dive.setType(d.getType());
+		dive.setMaxDepth(d.getMaxDepth());
+		dive.setDiveTime(d.getDiveTime());
+		dive.setWaterType(d.getWaterType());
+		dive.setWaterTaste(d.getWaterTaste());
+		dive.setWeather(d.getWeather());
+		dive.setAirTemperature(d.getAirTemperature());
+		dive.setSurfaceTemperature(d.getSurfaceTemperature());
+		dive.setDeepTemperature(d.getDeepTemperature());
+		dive.setVisibility(d.getVisibility());
+		dive.setWaves(d.getWaves());
+		dive.setCurrent(d.getCurrent());
+		dive.setSuit(d.getSuit());
+		dive.setBallast(d.getBallast());
+		dive.setTank(d.getTank());
+		dive.setTankSize(d.getTankSize());
+		dive.setGasMix(d.getGasMix());
+		dive.setInitialPressure(d.getInitialPressure());
+		dive.setFinalPressure(d.getFinalPressure());
+		dive.setUsedAir(d.getInitialPressure() - d.getFinalPressure());
+		dive.setJudgement(d.getJudgement());
+		dive.setNotes(d.getNotes());
+		dive.setBuddy(d.getBuddy());
+		dive.setUser(u);
+		diveRepo.save(dive);
+		return "saved!";
+	}
+	}
 
-}
+

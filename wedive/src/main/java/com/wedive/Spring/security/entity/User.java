@@ -89,6 +89,10 @@ public class User{
 	public void setLicences(Set<Licence> licences) {
 		this.licences = licences;
 	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 
     
 	//tecnicamente non dovrebbe più servire

@@ -1,3 +1,23 @@
 form{
   background-color: var(--surface-ground);
+  // display: flex;
+  // flex-direction: column;
+  // align-items:stretch;
+  // justify-content: space-around;
+  // height: 5000px;
+  .card{
+    margin: 35px auto;
+  }
+}
+
+:host::ng-deep{
+  p-dropdown, p-calendar, p-inputnumber{
+    display: block;
+    .p-dropdown, .p-calendar, .p-inputnumber{
+      display: flex;
+    }
+    .p-dropdown-label, input{
+      width: 100%;
+    }
+  }
 }

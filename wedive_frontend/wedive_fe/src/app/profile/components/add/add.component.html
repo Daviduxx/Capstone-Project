@@ -4,122 +4,131 @@
   Once you have created the record it will be saved in our database.
   You can access your dives whenever you want.</p>
 
-<form [formGroup]="addDive" class="border-round-xl border-2 border-primary-900 p-7">
-
-  <label for="name">Title:</label>
-  <input type="text" placeholder="Add a title" required formControlName="name" ><br>
-
-  <label for="date">Date:</label>
-  <input type="date" required formControlName="date"><br>
+<form [formGroup]="addDive" class="border-round-xl border-2 border-primary-900 p-4">
 
 
-<div class="card flex justify-content-center">
-    <span class="p-float-label">
-      <p-dropdown formControlName="type" [options]="diveType"></p-dropdown>
-      <label for="float-label">Select a type of dive:</label>
+<div class="card">
+  <span class="p-float-label">
+    <input type="text" pInputText formControlName="name" class="w-full"/>
+    <label htmlFor="username">Title:</label>
+  </span>
+</div>
+
+
+<div class="card">
+      <p-calendar formControlName="date" dateFormat="dd.mm.yy" [showIcon]="true" [showButtonBar]="true" class="w-full"></p-calendar>
+</div>
+
+
+<div class="card w-full">
+    <span class="p-float-label w-full">
+      <p-dropdown formControlName="type" [options]="diveType" class="w-full"></p-dropdown>
+      <label for="float-label" class="w-full">Select a type of dive:</label>
     </span>
 </div>
 
-<div class="card flex justify-content-center">
+<div class="card">
   <span class="p-float-label">
-      <p-inputNumber inputId="integeronly" formControlName="maxDepth" prefix=" ↓" suffix="m" [min]="0" [max]="200"></p-inputNumber>
+      <p-inputNumber inputId="integeronly" formControlName="maxDepth" prefix=" ↓" suffix="m" [min]="0" [max]="200" class="w-full"></p-inputNumber>
       <label htmlFor="number-input">Maximum depth reached:</label>
     </span>
     </div>
 
-    <div class="card flex justify-content-center">
+    <div class="card">
       <span class="p-float-label">
           <p-inputNumber inputId="minmax" formControlName="diveTime" suffix="h" mode="decimal" [min]="0" [max]="6"></p-inputNumber>
           <label htmlFor="number-input">Time underwater:</label>
       </span>
     </div>
 
-    <div class="card flex justify-content-center">
+    <div class="card">
       <span class="p-float-label">
         <p-dropdown formControlName="waterType" [options]="waterType"></p-dropdown>
         <label for="float-label">Select a type of water:</label>
       </span>
   </div>
 
+  <p for="waterTaste" class="text-center">How was the water?</p>
   <div class="card flex justify-content-center">
-        <p-selectButton [options]="waterTasteOptions" formControlName="waterTaste" optionLabel="label" optionValue="value"></p-selectButton>
+        <p-selectButton [options]="waterTasteOptions" formControlName="waterTaste"></p-selectButton>
 </div>
 
-<div class="card flex justify-content-center">
+<div class="card">
   <span class="p-float-label">
     <p-dropdown formControlName="weather" [options]="weather"></p-dropdown>
     <label for="float-label">How was the weather?</label>
   </span>
 </div>
 
-<div class="card flex justify-content-center">
+<div class="card">
   <span class="p-float-label">
       <p-inputNumber inputId="minmax" formControlName="airTemperature" suffix="°C" mode="decimal" [min]="0" [max]="60"></p-inputNumber>
       <label htmlFor="number-input">Air Temperature:</label>
   </span>
 </div>
 
-<div class="card flex justify-content-center">
+<div class="card">
   <span class="p-float-label">
       <p-inputNumber inputId="minmax" formControlName="surfaceTemperature" suffix="°C" mode="decimal" [min]="0" [max]="60"></p-inputNumber>
-      <label htmlFor="number-input">surface Temperature:</label>
+      <label htmlFor="number-input">Surface Temperature:</label>
   </span>
 </div>
 
-<div class="card flex justify-content-center">
+<div class="card">
   <span class="p-float-label">
       <p-inputNumber inputId="minmax" formControlName="deepTemperature" suffix="°C" mode="decimal" [min]="0" [max]="60"></p-inputNumber>
-      <label htmlFor="number-input">deep Temperature:</label>
+      <label htmlFor="number-input">Deep Temperature:</label>
   </span>
 </div>
 
-<div class="card flex justify-content-center">
+<div class="card">
+  <p for="waterTaste" class="text-center">How was the visibility?</p>
   <p-selectButton [options]="visibility" formControlName="visibility" [multiple]="false"></p-selectButton>
 </div>
 
-<div class="card flex justify-content-center">
+<div class="card">
   <span class="p-float-label">
     <p-dropdown formControlName="waves" [options]="waves"></p-dropdown>
     <label for="float-label">What about waves?</label>
   </span>
 </div>
 
-<div class="card flex justify-content-center">
+<div class="card">
   <span class="p-float-label">
     <p-dropdown formControlName="current" [options]="current"></p-dropdown>
     <label for="float-label">What about current?</label>
   </span>
 </div>
 
-<div class="card flex justify-content-center">
+<div class="card">
   <span class="p-float-label">
     <p-dropdown formControlName="suit" [options]="suit"></p-dropdown>
     <label for="float-label">What kind of suit did you had?</label>
   </span>
 </div>
 
-<div class="card flex justify-content-center">
+<div class="card">
   <span class="p-float-label">
       <p-inputNumber inputId="integeronly" formControlName="ballast" suffix="kg" [min]="0" [max]="20"></p-inputNumber>
       <label htmlFor="number-input">Ballast wight:</label>
   </span>
 </div>
 
-<div class="card flex justify-content-center">
+<div class="card">
   <span class="p-float-label">
     <p-dropdown formControlName="tank" [options]="tank"></p-dropdown>
     <label for="float-label">What kind of tank did you had?</label>
   </span>
 </div>
 
-<div class="card flex justify-content-center">
+<div class="card">
   <span class="p-float-label">
       <p-inputNumber inputId="integeronly" formControlName="tankSize" suffix="l" [min]="0" [max]="20"></p-inputNumber>
       <label htmlFor="number-input">Tank Size:</label>
   </span>
 </div>
 
-<div class="card flex justify-content-center">
+<div class="card">
   <span class="p-float-label">
     <p-dropdown formControlName="gasMix" [options]="gasMix"></p-dropdown>
     <label for="float-label">What kind of gasMix did you had?</label>
@@ -138,7 +147,7 @@
   <p-knob formControlName="usedAir" [min]="50" [max]="300" [step]="10" [strokeWidth]="5" [size]="200"></p-knob>
 </div>
 
-<div class="card flex justify-content-center">
+<div class="card">
   <span class="p-float-label">
     <p-dropdown formControlName="judgement" [options]="judgement"></p-dropdown>
     <label for="float-label">How is your judgement?</label>
@@ -151,9 +160,10 @@
   </span>
 </div>
 
-<div class="card flex justify-content-center">
+<div class="card">
   <span class="p-float-label">
-  <input type="text" pInputText formControlName="buddy"/>
+  <input type="text" pInputText formControlName="buddy" class="w-full"/>
+  <label htmlFor="username">Your buddy</label>
 </span>
 </div>
 

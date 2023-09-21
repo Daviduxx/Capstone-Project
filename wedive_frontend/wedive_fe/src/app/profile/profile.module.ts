@@ -18,6 +18,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { KnobModule } from 'primeng/knob';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputTextModule } from 'primeng/inputtext';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { InputTextModule } from 'primeng/inputtext';
     SelectButtonModule,
     KnobModule,
     InputTextareaModule,
-    InputTextModule
+    InputTextModule,
+    CalendarModule
   ]
 })
 export class ProfileModule { }
