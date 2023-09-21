@@ -42,7 +42,7 @@ export class AddComponent implements OnInit{
     // console.log(this.userId)
     this.user = this.uSvc.getUserData();
 
-    console.log(this.user);
+    console.log(this.user.id);
 
     //this.userId = this.user.id;
 
@@ -80,12 +80,14 @@ export class AddComponent implements OnInit{
 
   }
 
-  // addDiveSession(){
-  //   this.uSvc.addDive(this.addDive.value, this.userId).subscribe(
-  //     d => {
-  //       console.log(d);
-  //     }
-  //   )
-  // }
+  addDiveSession(){
+    console.log(this.addDive.value);
+
+    this.uSvc.addDive(this.addDive.value, this.user.id).subscribe(
+      d => {
+        console.log(d);
+      }
+    )
+  }
 
 }
