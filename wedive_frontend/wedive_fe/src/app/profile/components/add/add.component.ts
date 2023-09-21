@@ -33,7 +33,24 @@ export class AddComponent implements OnInit{
       diveTime: new FormControl(null),
       waterType: new FormControl(null),
       waterTaste: new FormControl(null),
-      weather: new FormControl(null)
+      weather: new FormControl(null),
+      airTemperature: new FormControl(null),
+      surfaceTemperature: new FormControl(null),
+      deepTemperature: new FormControl(null),
+      visibility: new FormControl(null),
+      waves: new FormControl(null),
+      current: new FormControl(null),
+      suit: new FormControl(null),
+      ballast: new FormControl(null),
+      tank: new FormControl(null),
+      tankSize: new FormControl(null),
+      gasMix: new FormControl(null),
+      initialPressure: new FormControl(null),
+      finalPressure: new FormControl(null),
+      usedAir: new FormControl(null),
+      judgement: new FormControl(null),
+      notes: new FormControl(null),
+      buddy: new FormControl(null),
     });
   }
 

@@ -1,6 +1,10 @@
-<p>add works!</p>
+<h1 class="text-center text-5xl mb-5">Add a <span class="text-blue-700">Dive</span></h1>
 
-<form [formGroup]="addDive">
+<p class="text-center text-xl my-5 px-7">Fill all the inputs down here and save your dives.
+  Once you have created the record it will be saved in our database.
+  You can access your dives whenever you want.</p>
+
+<form [formGroup]="addDive" class="border-round-xl border-2 border-primary-900 p-7">
 
   <label for="name">Title:</label>
   <input type="text" placeholder="Add a title" required formControlName="name" ><br>
