@@ -36,7 +36,7 @@
 
     <div class="card">
       <span class="p-float-label">
-          <p-inputNumber inputId="minmax" formControlName="diveTime" suffix="h" mode="decimal" [min]="0" [max]="6"></p-inputNumber>
+          <p-inputNumber inputId="minmax" formControlName="diveTime" suffix=" min" [min]="0" [max]="360"></p-inputNumber>
           <label htmlFor="number-input">Time underwater:</label>
       </span>
     </div>
@@ -62,21 +62,21 @@
 
 <div class="card">
   <span class="p-float-label">
-      <p-inputNumber inputId="minmax" formControlName="airTemperature" suffix="°C" mode="decimal" [min]="0" [max]="60"></p-inputNumber>
+      <p-inputNumber inputId="locale-german" formControlName="airTemperature" suffix="°C" mode="decimal" [min]="-100" [max]="60" [minFractionDigits]="2"></p-inputNumber>
       <label htmlFor="number-input">Air Temperature:</label>
   </span>
 </div>
 
 <div class="card">
   <span class="p-float-label">
-      <p-inputNumber inputId="minmax" formControlName="surfaceTemperature" suffix="°C" mode="decimal" [min]="0" [max]="60"></p-inputNumber>
+      <p-inputNumber inputId="locale-german" formControlName="surfaceTemperature" suffix="°C" mode="decimal" [min]="0" [max]="60" [minFractionDigits]="2"></p-inputNumber>
       <label htmlFor="number-input">Surface Temperature:</label>
   </span>
 </div>
 
 <div class="card">
   <span class="p-float-label">
-      <p-inputNumber inputId="minmax" formControlName="deepTemperature" suffix="°C" mode="decimal" [min]="0" [max]="60"></p-inputNumber>
+      <p-inputNumber inputId="locale-german" formControlName="deepTemperature" suffix="°C" mode="decimal" [min]="0" [max]="60" [minFractionDigits]="2"></p-inputNumber>
       <label htmlFor="number-input">Deep Temperature:</label>
   </span>
 </div>
@@ -109,7 +109,7 @@
 
 <div class="card">
   <span class="p-float-label">
-      <p-inputNumber inputId="integeronly" formControlName="ballast" suffix="kg" [min]="0" [max]="20"></p-inputNumber>
+      <p-inputNumber inputId="integeronly" formControlName="ballast" suffix=" kg" [min]="0" [max]="20"></p-inputNumber>
       <label htmlFor="number-input">Ballast wight:</label>
   </span>
 </div>
@@ -123,7 +123,7 @@
 
 <div class="card">
   <span class="p-float-label">
-      <p-inputNumber inputId="integeronly" formControlName="tankSize" suffix="l" [min]="0" [max]="20"></p-inputNumber>
+      <p-inputNumber inputId="integeronly" formControlName="tankSize" suffix=" l" [min]="0" [max]="20"></p-inputNumber>
       <label htmlFor="number-input">Tank Size:</label>
   </span>
 </div>
