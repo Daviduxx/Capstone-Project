@@ -15,9 +15,9 @@ export class ProfileComponent {
  username: string | null = null;
  user!: iUser;
 
+ //find user's usernmae, and retrive user's object from it, then save it on the localstorage
   ngOnInit(): void {
     this.username = this.route.snapshot.params['username'];
-    console.log(this.username)
     this.uSvc.getUser(this.username).subscribe(
       resp => {
         console.log(resp);

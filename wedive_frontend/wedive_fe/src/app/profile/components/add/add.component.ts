@@ -17,13 +17,14 @@ export class AddComponent implements OnInit{
 
   constructor ( private uSvc:UserService, private route:ActivatedRoute, private dPipe:DatePipe ) { }
 
+  // props
   username!: string;
-  user!: any;
+  user!: any; //weird typing but is the only one that works
 
   addDive!: FormGroup;
 
-  diveType: string[] = [];
-  waterType: string[] = [];
+  diveType: string[] = ['Boat', 'Jetty', 'Shore'];
+  waterType: string[] = ['River', 'Lake', 'Ocean', 'Cave', 'Ice', 'Other'];
   waterTasteOptions: string[] = ['Fresh Water', 'Salty Water'];
   weather:string[] = ['Sunny', 'Slightly Cloudy', 'Cloudy', 'Rainy', 'Windy', 'Foggy'];
   visibility:string[] = ['Excellent', 'Good', 'Bad'];
@@ -36,6 +37,7 @@ export class AddComponent implements OnInit{
 
   ngOnInit(): void {
 
+    // retrieve data from localstorage
     let item: iUser | null | string = localStorage.getItem('user');
     if(item){
       item = JSON.parse(item);
@@ -44,8 +46,6 @@ export class AddComponent implements OnInit{
       console.log(this.user.id)
     }
 
-    this.diveType = ['Boat', 'Jetty', 'Shore'];
-    this.waterType = ['River', 'Lake', 'Ocean', 'Cave', 'Ice', 'Other'];
     this.addDive = new FormGroup({
       name: new FormControl(null), //ok
       date: new FormControl(null), //ok
@@ -69,19 +69,17 @@ export class AddComponent implements OnInit{
       initialPressure: new FormControl(null), //ok
       finalPressure: new FormControl(null), //ok
       usedAir: new FormControl(null), //ok
-      judgement: new FormControl(null),
-      notes: new FormControl(null),
-      buddy: new FormControl(null),
+      judgement: new FormControl(null), //ok
+      notes: new FormControl(null), //ok
+      buddy: new FormControl(null), //ok
     });
-
-
-
   }
 
   addDiveSession(){
 
     console.log(this.addDive.value);
 
+    // mapping data for the server, maybe i need to delete logs
     this.addDive.value.date = this.dPipe.transform(this.addDive.value.date, 'yyyy-MM-dd');
     console.log(this.addDive.value.date);
 
@@ -147,7 +145,7 @@ export class AddComponent implements OnInit{
 
     console.log(this.addDive.value);
 
-
+    // send data to the server (needs the user id)
     this.uSvc.addDive(this.addDive.value, this.user.id).subscribe(
       d => {
         console.log(d);

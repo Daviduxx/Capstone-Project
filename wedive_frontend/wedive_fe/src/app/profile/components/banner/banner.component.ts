@@ -20,6 +20,7 @@ export class BannerComponent implements OnInit{
 username: string | null = null;
 user: iUser | null = null;
 
+  // same as profile.ts. probably mus be changed in the add.ts way
   ngOnInit(): void {
     this.username = this.route.snapshot.params['username'];
     console.log(this.username)

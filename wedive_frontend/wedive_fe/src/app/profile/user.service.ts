@@ -10,6 +10,8 @@ import { Observable, of } from 'rxjs';
 })
 export class UserService {
 
+  // andpoints & props
+
   GETUSER_API: string = environment.GETBYUSERNAME;
   ADDDIVE_API: string = environment.ADDDIVE;
 
@@ -17,6 +19,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  // sets user's data on localstorage
   setUserData(user:iUser):void {
     this.user = user;
     localStorage.setItem('user', JSON.stringify(this.user));
@@ -27,10 +30,12 @@ export class UserService {
     return of(this.user);
   }
 
+  // find the user from the username
   getUser(username: string | null) {
    return this.http.get<iUser>(this.GETUSER_API + username);
   }
 
+  // add dive entity, based on the user's id
   addDive(dive:iDives, id:number){
     return this.http.post<iDives>(this.ADDDIVE_API + id, dive);
   }
