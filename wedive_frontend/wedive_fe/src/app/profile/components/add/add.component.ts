@@ -15,13 +15,12 @@ import { DatePipe } from '@angular/common';
 
 export class AddComponent implements OnInit{
 
-  user!: iUser;
-
   constructor ( private uSvc:UserService, private route:ActivatedRoute, private dPipe:DatePipe ) { }
 
-  addDive!: FormGroup;
+  username!: string;
+  user!: any;
 
-  userId!: number;
+  addDive!: FormGroup;
 
   diveType: string[] = [];
   waterType: string[] = [];
@@ -37,13 +36,13 @@ export class AddComponent implements OnInit{
 
   ngOnInit(): void {
 
-    // this.user = this.route.snapshot.params['username'];
-    // console.log(this.userId)
-    this.user = this.uSvc.getUserData();
-
-    console.log(this.user.id);
-
-    //this.userId = this.user.id;
+    let item: iUser | null | string = localStorage.getItem('user');
+    if(item){
+      item = JSON.parse(item);
+      console.log(item);
+      this.user = item;
+      console.log(this.user.id)
+    }
 
     this.diveType = ['Boat', 'Jetty', 'Shore'];
     this.waterType = ['River', 'Lake', 'Ocean', 'Cave', 'Ice', 'Other'];

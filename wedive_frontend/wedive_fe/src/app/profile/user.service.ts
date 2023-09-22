@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { iUser } from '../interfaces/iuser';
 import { iDives } from '../interfaces/i-dive';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +19,12 @@ export class UserService {
 
   setUserData(user:iUser):void {
     this.user = user;
+    localStorage.setItem('user', JSON.stringify(this.user));
   }
 
-  getUserData():iUser{
-    return this.user;
+  // probably dead code
+  getUserData(): Observable<iUser>{
+    return of(this.user);
   }
 
   getUser(username: string | null) {
