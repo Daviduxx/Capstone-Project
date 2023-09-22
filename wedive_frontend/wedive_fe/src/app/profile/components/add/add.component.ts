@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DropdownModule } from 'primeng/dropdown';
 import { iUser } from 'src/app/interfaces/iuser';
 import { UserService } from '../../user.service';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -16,9 +17,7 @@ export class AddComponent implements OnInit{
 
   user!: iUser;
 
-  constructor ( private uSvc:UserService, private route:ActivatedRoute ) {
-
-  }
+  constructor ( private uSvc:UserService, private route:ActivatedRoute, private dPipe:DatePipe ) { }
 
   addDive!: FormGroup;
 
@@ -81,7 +80,16 @@ export class AddComponent implements OnInit{
   }
 
   addDiveSession(){
+
     console.log(this.addDive.value);
+
+    this.addDive.value.date = this.dPipe.transform(this.addDive.value.date, 'dd/MM/yyyy');
+    console.log(this.addDive.value.date);
+
+    let value:string = this.addDive.get('type')?.value;
+    this.addDive.value.type = value.toUpperCase();
+    console.log(this.addDive.value.type);
+
 
     this.uSvc.addDive(this.addDive.value, this.user.id).subscribe(
       d => {

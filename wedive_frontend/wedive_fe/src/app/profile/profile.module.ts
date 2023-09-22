@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
@@ -43,7 +43,11 @@ import { CalendarModule } from 'primeng/calendar';
     KnobModule,
     InputTextareaModule,
     InputTextModule,
-    CalendarModule
+    CalendarModule,
+    DatePipe
+  ],
+  providers: [
+    DatePipe
   ]
 })
 export class ProfileModule { }
