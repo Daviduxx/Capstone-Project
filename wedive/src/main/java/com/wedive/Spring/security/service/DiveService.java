@@ -53,7 +53,7 @@ public class DiveService {
 		return diveRepo.save(d);
 		}
 	
-	public String addDive(DiveDto d, Long id) {
+	public Dive addDive(DiveDto d, Long id) {
 		Dive dive = new Dive();
 		User u = uRepo.getById(id);
 		dive.setName(d.getName());
@@ -82,8 +82,7 @@ public class DiveService {
 		dive.setNotes(d.getNotes());
 		dive.setBuddy(d.getBuddy());
 		dive.setUser(u);
-		diveRepo.save(dive);
-		return "saved!";
+		return diveRepo.save(dive);
 	}
 	}
 

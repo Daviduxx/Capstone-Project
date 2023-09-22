@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -49,7 +50,8 @@ public class DiveController {
 	}
 	
 	@PostMapping("/add/{id}")
-	public ResponseEntity<String> addDive(@PathVariable Long id, @RequestBody DiveDto d){
-		return new ResponseEntity<String>(diveSvc.addDive(d, id), HttpStatus.CREATED);
+	public ResponseEntity<?> addDive(@PathVariable Long id, @RequestBody DiveDto d){
+		Dive newDive = diveSvc.addDive(d, id);
+		return new ResponseEntity<Dive>(newDive, HttpStatus.CREATED);
 	}
 }
