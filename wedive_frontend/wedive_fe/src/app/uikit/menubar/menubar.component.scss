@@ -1,26 +1,36 @@
 :host::ng-deep{
+  .scrolled{
+    background-color: #5e5c8924;
+    // box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  }
   .p-menubar{
     display: flex;
     justify-content: space-between;
+    padding: 20px;
     .p-menubar-end{
       margin: 0;
       display: none;
     }
-
     .p-menubar-button{
       width: 30%;
       position: absolute !important;
       right: 0px;
       top: 15px;
     }
-    // p-menubarsub{
-    //   width: 30%;
-    //   position: absolute;
-    //   right: 12px;
-    //   top: 65px;
-    // }
   }
+}
 
+.card{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.signup{
+  background-color: red;
 }
 
 

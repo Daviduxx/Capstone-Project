@@ -18,9 +18,29 @@ export class MenubarComponent implements OnInit{
         },
         {
             label: 'Signup',
-            routerLink: '/join'
+            routerLink: '/join',
+            style: {
+              'background-color': '#3b82f6',
+              'border-radius': '10px'
+            }
         }
     ];
+
+    window.addEventListener('scroll', () => {
+
+      let scrolled = window.scrollY;
+      let nav: any = document.querySelector('.p-menubar');
+      console.log(scrolled);
+      if(scrolled > 300){
+        nav.classList.add('scrolled')
+    }
+    else{
+        nav.classList.remove('scrolled')
+    }
+    })
+
+
+
 }
 }
 
