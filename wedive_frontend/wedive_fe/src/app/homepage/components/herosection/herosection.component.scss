@@ -3,16 +3,11 @@
 
 
 #heroSection{
-  background-image: url('../../../../assets/background.jpg');
-  background-position:center;
-  background-size: cover;
-
-  @include flex(column, center, flex-start);
-  padding: 6rem;
-  .box{
-    max-width: 500px
+  .tagline{
+    letter-spacing: 2px;
   }
-  h1{
-    @include h1;
+  margin-top: 105px;
+  .heroImage{
+    width: 700px;
   }
 }

@@ -9,6 +9,7 @@ import { MenubarComponent } from '../uikit/menubar/menubar.component';
 import { FeaturesComponent } from './components/features/features.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { AccordionModule } from 'primeng/accordion';
+import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { AccordionModule } from 'primeng/accordion';
     CommonModule,
     HomepageRoutingModule,
     UikitModule,
-    AccordionModule
+    AccordionModule,
+    ButtonModule
   ]
 })
 export class HomepageModule { }
