@@ -12,6 +12,7 @@ import { AccordionModule } from 'primeng/accordion';
 import { ButtonModule } from 'primeng/button';
 import { StatsComponent } from './components/stats/stats.component';
 import { isSubscription } from 'rxjs/internal/Subscription';
+import { EcoComponent } from './components/eco/eco.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { isSubscription } from 'rxjs/internal/Subscription';
     HerosectionComponent,
     FeaturesComponent,
     FaqComponent,
-    StatsComponent
+    StatsComponent,
+    EcoComponent
   ],
   imports: [
     CommonModule,

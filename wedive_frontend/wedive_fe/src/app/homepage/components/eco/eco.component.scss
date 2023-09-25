@@ -1,0 +1,18 @@
+@import '../../../scss/partials/variables';
+@import '../../../scss/partials/mixins';
+
+
+#container{
+  @include flex(row, center, center);
+  background-color: var(--surface-0);
+  padding: 40px;
+  margin: 20px;
+  border: 2px solid var(--blue-500);
+  border-radius: 10px;
+  #image{
+    max-width: 400px;
+    img{
+      width: 100%;
+    }
+  }
+}
