@@ -1,27 +1,44 @@
-<p>register works!</p>
+<div id="form">
 
-<form [formGroup]="signup" (ngSubmit)="onSubmit()" >
+  <form [formGroup]="signup" (ngSubmit)="onSubmit()">
 
-  <label for="name">Name:</label>
-  <input type="text" placeholder="Your Name" required formControlName="name"><br>
+    <div class="surface-card p-4 shadow-2 border-round w-full">
+      <div class="text-center mb-5">
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Logo_of_PADI.svg/1200px-Logo_of_PADI.svg.png" alt="Image" height="70" class="mb-3">
+          <div class="text-900 text-3xl font-medium mb-3">Welcome to We Dive</div>
+          <span class="text-600 font-medium line-height-3">Already have an account?</span>
+          <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer" [routerLink]="['join']">Login!</a>
+      </div>
 
-  <label for="surname">Surname:</label>
-  <input type="text" placeholder="Your surname" required formControlName="surname"><br>
+      <div>
+          <label for="name" class="block text-900 font-medium mb-2">Name:</label>
+          <input id="name" type="text" placeholder="Your name" pInputText class="w-full mb-3" required formControlName="name">
 
-  <label for="username">Username:</label>
-  <input type="text" placeholder="Your username" required formControlName="username"><br>
+          <label for="surname" class="block text-900 font-medium mb-2">Surame:</label>
+          <input id="surname" type="text" placeholder="Your surname" pInputText class="w-full mb-3" required formControlName="surname">
 
-  <label for="email">Email:</label>
-  <input type="email" placeholder="Your email" required formControlName="email"><br>
+          <label for="username" class="block text-900 font-medium mb-2">Username</label>
+          <input id="username" type="text" placeholder="Your username" pInputText class="w-full mb-3" required formControlName="username">
 
-  <label for="birthday">Date of birth:</label>
-  <input type="date" required formControlName="birthday"><br>
+          <label for="email" class="block text-900 font-medium mb-2">Email:</label>
+          <input id="email" type="text" placeholder="mail@example.com" pInputText class="w-full mb-3" required formControlName="email">
 
-  <label for="password">Password:</label>
-  <input type="password" placeholder="Enter a password" required formControlName="password"><br>
+          <div class="w-full mb-3">
+            <label for="birthday" class="block text-900 font-medium mb-2">Birthday:</label>
+            <p-calendar formControlName="birthday" dateFormat="dd.mm.yy" [showIcon]="true" [showButtonBar]="false" class="w-full mb-3"></p-calendar>
+          </div>
 
-  <button [disabled]="!signup.valid">SIGNUP</button>
+          <!-- <input id="birthday" type="date" pInputText class="w-full mb-3" required formControlName="birthday"> -->
 
-</form>
+          <label for="password" class="block text-900 font-medium mb-2">Password:</label>
+          <input id="password" type="password" pInputText class="w-full mb-3" required formControlName="password">
+
+
+          <button pButton pRipple label="Sign In" icon="pi pi-user" class="w-full" [disabled]="!signup.valid"></button>
+      </div>
+    </div>
+
+  </form>
+</div>
 
 

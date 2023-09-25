@@ -1,4 +1,15 @@
-//@import "primeng/resources/primeng.css";
-@import "primeng/resources/themes/lara-dark-blue/theme.css";
-@import "primeicons/primeicons.css";
-@import "primeflex/primeflex.css";
+#form{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+:host::ng-deep{
+   p-calendar{
+    display: block;
+    .p-calendar{
+      display: flex;
+    }
+  }
+}

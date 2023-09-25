@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UikitModule } from '../uikit/uikit.module';
 import { InputTextModule } from 'primeng/inputtext';
 import { Button, ButtonModule } from 'primeng/button';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { Button, ButtonModule } from 'primeng/button';
     HttpClientModule,
     UikitModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    CalendarModule
   ]
 })
 export class AuthModule { }
