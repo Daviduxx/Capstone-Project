@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-eco',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./eco.component.scss']
 })
 export class EcoComponent {
+
+  constructor ( private router: Router) { }
+
+  join(){
+    this.router.navigate(['join/signup'])
+  }
 
 }
