@@ -30,7 +30,6 @@ export class MenubarComponent implements OnInit{
 
       let scrolled = window.scrollY;
       let nav: any = document.querySelector('.p-menubar');
-      console.log(scrolled);
       if(scrolled > 300){
         nav.classList.add('scrolled')
     }

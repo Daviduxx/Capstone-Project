@@ -8,7 +8,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UikitModule } from '../uikit/uikit.module';
-
+import { InputTextModule } from 'primeng/inputtext';
+import { Button, ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { UikitModule } from '../uikit/uikit.module';
     AuthRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    UikitModule
+    UikitModule,
+    InputTextModule,
+    ButtonModule
   ]
 })
 export class AuthModule { }
