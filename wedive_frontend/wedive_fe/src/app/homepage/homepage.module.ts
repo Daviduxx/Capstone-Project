@@ -13,6 +13,7 @@ import { ButtonModule } from 'primeng/button';
 import { StatsComponent } from './components/stats/stats.component';
 import { isSubscription } from 'rxjs/internal/Subscription';
 import { EcoComponent } from './components/eco/eco.component';
+import { TeamComponent } from './components/team/team.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { EcoComponent } from './components/eco/eco.component';
     FeaturesComponent,
     FaqComponent,
     StatsComponent,
-    EcoComponent
+    EcoComponent,
+    TeamComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,23 @@
+#container{
+  border: 1px solid var(--blue-500);
+  border-radius: 10px;
+  padding: 20px;
+  #items{
+    .card{
+      background-color: blue;
+      background-image: url('../../../../assets/scuba1.jpg');
+      background-size: cover;
+      width: 260px;
+      height: 350px;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 20px;
+      .glass{
+        background-color: rgba(45, 45, 45, 0.239);
+        padding: 15px;
+        border-radius: 10px;
+        backdrop-filter: blur( 8px );
+      }
+    }
+  }
+}
