@@ -1,0 +1,15 @@
+@import '../../../scss/partials/variables';
+@import '../../../scss/partials/mixins';
+
+#container{
+  @include flex(row, center, center);
+  padding: 50px;
+  flex-wrap: wrap;
+  .stat{
+    border: 2px solid var(--blue-500);
+    border-radius: 10px;
+    margin: 20px 60px;
+    width: 300px;
+    height: 200px;
+  }
+}

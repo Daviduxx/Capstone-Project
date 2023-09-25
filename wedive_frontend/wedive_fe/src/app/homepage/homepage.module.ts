@@ -10,6 +10,8 @@ import { FeaturesComponent } from './components/features/features.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { AccordionModule } from 'primeng/accordion';
 import { ButtonModule } from 'primeng/button';
+import { StatsComponent } from './components/stats/stats.component';
+import { isSubscription } from 'rxjs/internal/Subscription';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { ButtonModule } from 'primeng/button';
     HomepageComponent,
     HerosectionComponent,
     FeaturesComponent,
-    FaqComponent
+    FaqComponent,
+    StatsComponent
   ],
   imports: [
     CommonModule,
