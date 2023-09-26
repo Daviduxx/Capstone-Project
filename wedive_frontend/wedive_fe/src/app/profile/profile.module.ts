@@ -21,13 +21,15 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import { UikitModule } from "../uikit/uikit.module";
 import { AnimateModule } from 'primeng/animate';
+import { DivedetailComponent } from './components/divedetail/divedetail.component';
 
 @NgModule({
     declarations: [
         ProfileComponent,
         BannerComponent,
         RecentsComponent,
-        AddComponent
+        AddComponent,
+        DivedetailComponent
     ],
     providers: [
         DatePipe

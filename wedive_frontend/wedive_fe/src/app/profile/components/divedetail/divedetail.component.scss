@@ -1,0 +1,10 @@
+#container{
+  background-color: var(--surface-overlay);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--blue-500);
+  .item{
+    padding: 20px 0;
+    border-bottom: 1px solid var(--blue-500);
+  }
+}
