@@ -42,7 +42,7 @@ public class Dive {
     private Long id;
     @Column(nullable = false, unique = true)
 	private String name;
-    @Column(nullable = true)
+    @Column(nullable = false)
 	private LocalDate date;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
