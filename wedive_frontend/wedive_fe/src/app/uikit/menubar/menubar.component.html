@@ -1,7 +1,7 @@
 <div class="card">
   <p-menubar [model]="items">
     <ng-template pTemplate="start">
-      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Logo_of_PADI.svg/1200px-Logo_of_PADI.svg.png" height="60" class="mr-2" />
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Logo_of_PADI.svg/1200px-Logo_of_PADI.svg.png" height="60" class="mr-2" (click)="backToHome()" />
   </ng-template>
   <!-- <ng-template pTemplate="end">
     <div>

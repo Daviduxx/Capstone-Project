@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
@@ -7,6 +8,8 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./menubar.component.scss']
 })
 export class MenubarComponent implements OnInit{
+
+  constructor ( private route: Router) {}
 
   items: MenuItem[] | undefined;
 
@@ -18,7 +21,7 @@ export class MenubarComponent implements OnInit{
         },
         {
             label: 'Signup',
-            routerLink: '/join',
+            routerLink: '/join/signup',
             style: {
               'background-color': '#3b82f6',
               'border-radius': '10px'
@@ -37,9 +40,10 @@ export class MenubarComponent implements OnInit{
         nav.classList.remove('scrolled')
     }
     })
+}
 
-
-
+backToHome(){
+  this.route.navigate(['/homepage'])
 }
 }
 

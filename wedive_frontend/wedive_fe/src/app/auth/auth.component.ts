@@ -53,5 +53,9 @@ export class AuthComponent implements OnInit{
   }
     }
 
+    backToHome(){
+      this.router.navigate(['/homepage'])
+    }
+
 
 }

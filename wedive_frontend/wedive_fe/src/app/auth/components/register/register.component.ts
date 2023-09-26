@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit {
   signup!: FormGroup;
   error: undefined | string;
 
-constructor( private aSvc: AuthService ) {}
+constructor( private aSvc: AuthService, private route: Router ) {}
 
 ngOnInit(): void {
 
@@ -75,6 +76,10 @@ onSubmit() {
           this.error = "Field required!"
           console.error(this.error);
         }
+    }
+
+    backToHome(){
+      this.route.navigate(['/homepage'])
     }
 
 }
