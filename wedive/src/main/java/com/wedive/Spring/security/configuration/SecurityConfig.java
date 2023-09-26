@@ -70,8 +70,10 @@ public class SecurityConfig {
         .authorizeHttpRequests((authorize) -> authorize
         		.requestMatchers(HttpMethod.GET, "/join/**").permitAll()
         		.requestMatchers(HttpMethod.GET, "/users/**").permitAll()
+        		.requestMatchers(HttpMethod.GET, "/users/getbyuser/**").permitAll()
         		.requestMatchers("/dives/add/**").permitAll()
                 .requestMatchers("/join/auth/**").permitAll()
+                .requestMatchers("/users/getbyuser/**").permitAll()
                 .anyRequest().authenticated())
         .exceptionHandling( exception -> exception
                 .authenticationEntryPoint(authenticationEntryPoint)

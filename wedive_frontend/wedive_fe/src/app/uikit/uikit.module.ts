@@ -4,6 +4,7 @@ import { MenubarComponent } from './menubar/menubar.component';
 import { MenubarModule } from 'primeng/menubar';
 import { FooterComponent } from './footer/footer.component';
 import { Footer } from 'primeng/api';
+import { Button, ButtonModule } from 'primeng/button';
 
 
 
@@ -18,7 +19,8 @@ import { Footer } from 'primeng/api';
   ],
   imports: [
     CommonModule,
-    MenubarModule
+    MenubarModule,
+    ButtonModule
   ]
 })
 export class UikitModule { }

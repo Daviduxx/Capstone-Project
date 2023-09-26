@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { iUser } from '../interfaces/iuser';
@@ -17,6 +17,8 @@ export class UserService {
 
   user!: iUser;
 
+  headers = new HttpHeaders();
+
   constructor(private http: HttpClient) { }
 
   // sets user's data on localstorage
@@ -32,7 +34,13 @@ export class UserService {
 
   // find the user from the username
   getUser(username: string | null) {
-   return this.http.get<iUser>(this.GETUSER_API + username);
+
+    let json = localStorage.getItem('userLogin');
+    if(json) {
+      let userLogin = JSON.parse(json);
+      this.headers = this.headers.set('Authorization', 'Bearer ' + userLogin.accessToken);
+    }
+   return this.http.get<iUser>(this.GETUSER_API + username, { headers: this.headers });
   }
 
   // add dive entity, based on the user's id

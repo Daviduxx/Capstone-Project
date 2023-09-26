@@ -1,12 +1,29 @@
-<div class="card">
+<div class="card" *ngIf="!isLoggedIn">
   <p-menubar [model]="items">
     <ng-template pTemplate="start">
       <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Logo_of_PADI.svg/1200px-Logo_of_PADI.svg.png" height="60" class="mr-2" (click)="backToHome()" />
-  </ng-template>
-  <!-- <ng-template pTemplate="end">
-    <div>
-      asdfiug
-    </div>
-</ng-template> -->
+    </ng-template>
+    <!-- <ng-template pTemplate="end">
+      <div>
+        asdfiug
+      </div>
+    </ng-template> -->
+
   </p-menubar>
+  <!-- <p-button label="Submit"></p-button> -->
+</div>
+
+<div class="card" *ngIf="isLoggedIn">
+  <p-menubar [model]="loggedItems">
+    <ng-template pTemplate="start">
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Logo_of_PADI.svg/1200px-Logo_of_PADI.svg.png" height="60" class="mr-2" (click)="backToHome()" />
+    </ng-template>
+    <!-- <ng-template pTemplate="end">
+      <div>
+        asdfiug
+      </div>
+    </ng-template> -->
+
+  </p-menubar>
+  <!-- <p-button label="Submit"></p-button> -->
 </div>

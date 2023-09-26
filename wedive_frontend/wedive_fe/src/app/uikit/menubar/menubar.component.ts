@@ -1,6 +1,8 @@
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { AuthRoutingModule } from 'src/app/auth/auth-routing.module';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-menubar',
@@ -9,11 +11,17 @@ import { MenuItem } from 'primeng/api';
 })
 export class MenubarComponent implements OnInit{
 
-  constructor ( private route: Router) {}
+  constructor ( private route: Router, private aSvc: AuthService ) { }
 
   items: MenuItem[] | undefined;
+  loggedItems!: MenuItem[]
+  isLoggedIn: boolean = false;
 
   ngOnInit() {
+
+this.isLoggedIn = this.aSvc.isLoggedIn;
+console.log(this.isLoggedIn);
+
     this.items = [
         {
             label: 'Login',
@@ -28,6 +36,17 @@ export class MenubarComponent implements OnInit{
             }
         }
     ];
+
+    this.loggedItems = [
+      {
+        label: 'Logout',
+        style: {
+          'background-color': 'red',
+          'border-radius': '10px'
+        },
+        command: () => this.logout()
+      }
+  ];
 
     window.addEventListener('scroll', () => {
 
@@ -44,6 +63,10 @@ export class MenubarComponent implements OnInit{
 
 backToHome(){
   this.route.navigate(['/homepage'])
+}
+
+logout(){
+  this.aSvc.logout();
 }
 }
 

@@ -38,10 +38,10 @@ export class AuthComponent implements OnInit{
     if(this.login.value.username !== null && this.login.value.password !== null) {
       this.aSvc.login(this.login.value).subscribe(
         resp => {
+          localStorage.setItem('userLogin', JSON.stringify(resp));
           console.log(resp);
           this.error = undefined;
           this.user = resp;
-          localStorage.setItem('userLogin', JSON.stringify(resp));
           this.router.navigate(['/profile', this.user.username])
         }, err => {
           console.log(err.error.message);

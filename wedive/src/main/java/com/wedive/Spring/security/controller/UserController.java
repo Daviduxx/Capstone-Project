@@ -29,6 +29,7 @@ public class UserController {
 		@Autowired private UserService uSvc;
 		
 		@GetMapping("/getall")
+		@PreAuthorize("isAuthenticated()")
 		public ResponseEntity<List<User>> getAllUsers(){
 			return new ResponseEntity<List<User>>(uSvc.getAllUsers(), HttpStatus.OK);
 		}
@@ -40,17 +41,20 @@ public class UserController {
 		}
 		
 		@GetMapping("/getbyuser/{un}")
+		@PreAuthorize("isAuthenticated()")
 		public ResponseEntity<User> getUserByUsername(@PathVariable String un){
 			return new ResponseEntity<User>(uSvc.getuserByUsername(un), HttpStatus.OK);
 		}
 		
 		@PatchMapping("/put/{id}")
+		@PreAuthorize("isAuthenticated()")
 		public ResponseEntity<?> addDive(@PathVariable Long id, @RequestBody UpdateDTO u){
 			User user = uSvc.update(id, u);
 			return new ResponseEntity<User>(user, HttpStatus.OK);
 		}
 		
 		@DeleteMapping("/delete/{id}")
+		@PreAuthorize("isAuthenticated()")
 		public ResponseEntity<String> deleteById(@PathVariable Long id){
 			return new ResponseEntity<String>(uSvc.deleteById(id), HttpStatus.OK);
 		}

@@ -19,35 +19,36 @@ import { KnobModule } from 'primeng/knob';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
+import { UikitModule } from "../uikit/uikit.module";
 
 @NgModule({
-  declarations: [
-    ProfileComponent,
-    BannerComponent,
-    RecentsComponent,
-    AddComponent
-
-  ],
-  imports: [
-    CommonModule,
-    ProfileRoutingModule,
-    AvatarGroupModule,
-    AvatarModule,
-    ImageModule,
-    TagModule,
-    ButtonModule,
-    DropdownModule,
-    ReactiveFormsModule,
-    InputNumberModule,
-    SelectButtonModule,
-    KnobModule,
-    InputTextareaModule,
-    InputTextModule,
-    CalendarModule,
-    DatePipe
-  ],
-  providers: [
-    DatePipe
-  ]
+    declarations: [
+        ProfileComponent,
+        BannerComponent,
+        RecentsComponent,
+        AddComponent
+    ],
+    providers: [
+        DatePipe
+    ],
+    imports: [
+        CommonModule,
+        ProfileRoutingModule,
+        AvatarGroupModule,
+        AvatarModule,
+        ImageModule,
+        TagModule,
+        ButtonModule,
+        DropdownModule,
+        ReactiveFormsModule,
+        InputNumberModule,
+        SelectButtonModule,
+        KnobModule,
+        InputTextareaModule,
+        InputTextModule,
+        CalendarModule,
+        DatePipe,
+        UikitModule
+    ]
 })
 export class ProfileModule { }
