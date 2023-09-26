@@ -38,6 +38,11 @@ public class DiveController {
 		return new ResponseEntity<List<Dive>>(diveSvc.getAllDives(), HttpStatus.OK);
 	}
 	
+	@GetMapping("/getbyuser/{id}")
+	public ResponseEntity<List<Dive>> getDivesByUserId(@PathVariable Long id){
+		return new ResponseEntity<List<Dive>>(diveSvc.getAllByUserId(id), HttpStatus.OK);
+	}
+	
 	@PutMapping("/update/{id}")
 	public ResponseEntity<Dive> updateDive(@PathVariable Long id, @RequestBody Dive d){
 		Dive dive = diveSvc.update(id, d);

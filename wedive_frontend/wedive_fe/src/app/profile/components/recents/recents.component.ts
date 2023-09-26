@@ -21,9 +21,16 @@ export class RecentsComponent implements OnInit{
     console.log(this.username)
     this.uSvc.getUser(this.username).subscribe(
       resp => {
+        console.log(resp);
+
         this.dives = resp.dives;
       }
     )
+
+  }
+
+  diveDetail(d:iDives){
+    console.log(d);
 
   }
 

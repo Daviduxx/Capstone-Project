@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -9,12 +10,15 @@ export class FooterComponent {
 
   year!: number;
 
-  constructor () {
+  constructor ( private route: ActivatedRoute ) {
     this.year = new Date().getFullYear();
   }
 
   scrollToElement(element:any):void {
-    (document.getElementById(element) as HTMLElement).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    console.log(this.route.snapshot.url[0].path);
+    if(this.route.snapshot.url[0].path != 'profile'){
+      (document.getElementById(element) as HTMLElement).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    }
   }
 
 }

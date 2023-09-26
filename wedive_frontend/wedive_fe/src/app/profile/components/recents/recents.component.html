@@ -24,7 +24,7 @@
         <p-tag severity="danger" value="Refused" [rounded]="true" *ngIf="!dive.certified"></p-tag>
     </div> -->
     <div class="cardButton flex">
-      <p-button label="Details" styleClass="p-button-outlined" icon="pi pi-search" styleClass="p-button-sm"></p-button>
+      <p-button label="Details" styleClass="p-button-outlined" icon="pi pi-search" styleClass="p-button-sm" (onClick)="diveDetail(dive)"></p-button>
       <p-button styleClass="p-button-outlined p-button-sm p-button-danger mx-4" icon="pi pi-trash" ></p-button>
   </div>
   </div>

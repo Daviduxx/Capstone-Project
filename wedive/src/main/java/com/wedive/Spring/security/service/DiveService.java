@@ -34,6 +34,10 @@ public class DiveService {
 		return (List<Dive>) diveRepo.findAll();
 	}
 	
+	public List<Dive> getAllByUserId(Long id){
+		return diveRepo.findByUserId(id);
+	}
+	
 	// DELETE REQUESTS
 	
 	public String delete(Long id) {
