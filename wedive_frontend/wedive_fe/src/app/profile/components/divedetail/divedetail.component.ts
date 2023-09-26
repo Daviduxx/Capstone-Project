@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { iDives } from 'src/app/interfaces/i-dive';
 
 @Component({
   selector: 'app-divedetail',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./divedetail.component.scss']
 })
 export class DivedetailComponent {
+
+  dive!:iDives;
 
 }

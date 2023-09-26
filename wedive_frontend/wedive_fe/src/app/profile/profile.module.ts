@@ -22,6 +22,9 @@ import { CalendarModule } from 'primeng/calendar';
 import { UikitModule } from "../uikit/uikit.module";
 import { AnimateModule } from 'primeng/animate';
 import { DivedetailComponent } from './components/divedetail/divedetail.component';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
     declarations: [
@@ -29,10 +32,12 @@ import { DivedetailComponent } from './components/divedetail/divedetail.componen
         BannerComponent,
         RecentsComponent,
         AddComponent,
-        DivedetailComponent
+        DivedetailComponent,
     ],
     providers: [
-        DatePipe
+        DatePipe,
+        DialogService,
+        MessageService
     ],
     imports: [
         CommonModule,
@@ -52,7 +57,9 @@ import { DivedetailComponent } from './components/divedetail/divedetail.componen
         DatePipe,
         UikitModule,
         AnimateModule,
-        KnobModule
+        KnobModule,
+        DynamicDialogModule,
+        ToastModule,
     ]
 })
 export class ProfileModule { }

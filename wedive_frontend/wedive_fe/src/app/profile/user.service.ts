@@ -16,6 +16,7 @@ export class UserService {
   ADDDIVE_API: string = environment.ADDDIVE;
 
   user!: iUser;
+  dive!: iDives;
 
   headers = new HttpHeaders();
 
