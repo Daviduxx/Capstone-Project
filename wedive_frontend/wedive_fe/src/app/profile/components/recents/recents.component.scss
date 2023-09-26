@@ -3,12 +3,28 @@
 
 
 #cardContainer{
-  @include flex(row, flex-start, center);
+  @include flex(row, center, center);
   flex-wrap: wrap;
   .myCard{
     border: 2px solid var(--surface-border);
+    border-radius: 10px;
     height: 300px;
+    width: 230px;
     @include flex(column, space-between, flex-start);
     margin: 15px 30px;
+    .cardBody{
+      width: 190px;
+      .cardDetail{
+        border-bottom: 1px solid var(--blue-300);
+        padding-bottom: 4px;
+        margin-bottom: 8px;
+      }
+    }
+    .cardTitle{
+      width: 180px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }
