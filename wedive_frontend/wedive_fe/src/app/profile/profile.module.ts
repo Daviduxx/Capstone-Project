@@ -1,3 +1,4 @@
+import { KnobModule } from 'primeng/knob';
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 
@@ -15,11 +16,11 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { SelectButtonModule } from 'primeng/selectbutton';
-import { KnobModule } from 'primeng/knob';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import { UikitModule } from "../uikit/uikit.module";
+import { AnimateModule } from 'primeng/animate';
 
 @NgModule({
     declarations: [
@@ -43,12 +44,13 @@ import { UikitModule } from "../uikit/uikit.module";
         ReactiveFormsModule,
         InputNumberModule,
         SelectButtonModule,
-        KnobModule,
         InputTextareaModule,
         InputTextModule,
         CalendarModule,
         DatePipe,
-        UikitModule
+        UikitModule,
+        AnimateModule,
+        KnobModule
     ]
 })
 export class ProfileModule { }

@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MenubarModule } from 'primeng/menubar';
 import { AccordionModule } from 'primeng/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { KnobModule } from 'primeng/knob';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     MenubarModule,
     AccordionModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    KnobModule
   ],
   providers: [],
   bootstrap: [AppComponent]

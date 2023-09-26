@@ -2,7 +2,7 @@
 
 <p class="text-center text-xl my-5 px-7">Fill all the inputs down here and save your dives.
   Once you have created the record it will be saved in our database.
-  You can access your dives whenever you want.</p>
+  You can access them whenever you want.</p>
 
 <form [formGroup]="addDive" class="border-round-xl border-2 border-primary-900 p-4" >
 
@@ -16,6 +16,7 @@
 
 
 <div class="card">
+    <label for="date" class="text-500">Date:</label>
       <p-calendar formControlName="date" dateFormat="dd.mm.yy" [showIcon]="true" [showButtonBar]="true" class="w-full"></p-calendar>
 </div>
 
@@ -29,7 +30,7 @@
 
 <div class="card">
   <span class="p-float-label">
-      <p-inputNumber formControlName="maxDepth" inputId="locale-german" mode="decimal" locale="de-DE" [minFractionDigits]="2"  class="w-full"></p-inputNumber>
+      <p-inputNumber formControlName="maxDepth" inputId="locale-german" mode="decimal" suffix=" m" locale="de-DE" [minFractionDigits]="2"  class="w-full"></p-inputNumber>
       <label htmlFor="number-input">Maximum depth reached:</label>
     </span>
     </div>
@@ -82,7 +83,7 @@
 </div>
 
 <div class="card">
-  <p for="waterTaste" class="text-center">How was the visibility?</p>
+  <p for="waterTaste" class="text-center mb-4">How was the visibility?</p>
   <p-selectButton [options]="visibility" formControlName="visibility" [multiple]="false"></p-selectButton>
 </div>
 
@@ -135,8 +136,30 @@
   </span>
 </div>
 
+<div class="card">
+  <span class="p-float-label">
+      <p-inputNumber inputId="integeronly" formControlName="initialPressure" suffix=" bar" [min]="0" [max]="300"></p-inputNumber>
+      <label htmlFor="number-input">Initial Pressure:</label>
+  </span>
+</div>
+
+<div class="card">
+  <span class="p-float-label">
+      <p-inputNumber inputId="integeronly" formControlName="finalPressure" suffix=" bar" [min]="0" [max]="300"></p-inputNumber>
+      <label htmlFor="number-input">Final Pressure:</label>
+  </span>
+</div>
+
+<div class="card">
+  <span class="p-float-label">
+      <p-inputNumber inputId="integeronly" formControlName="tankSize" suffix=" l" [min]="0" [max]="20"></p-inputNumber>
+      <label htmlFor="number-input">Tank Size:</label>
+  </span>
+</div>
+
+<!-- ********** KNOB DON'T WORK ****** -->
+<!-- <p-knob formControlName="initialPressure"></p-knob>
 <div class="card flex justify-content-center">
-      <p-knob formControlName="initialPressure" [min]="50" [max]="300" [step]="5" [size]="200"></p-knob>
 </div>
 
 <div class="card flex justify-content-center">
@@ -145,7 +168,7 @@
 
 <div class="card flex justify-content-center">
   <p-knob formControlName="usedAir" [min]="50" [max]="300" [step]="10" [strokeWidth]="5" [size]="200"></p-knob>
-</div>
+</div> -->
 
 <div class="card">
   <span class="p-float-label">
@@ -154,7 +177,8 @@
   </span>
 </div>
 
-<div class="card flex justify-content-center">
+<div class="card">
+  <span for="float-label" class="text-500">Notes: </span>
   <span class="p-float-label">
       <textarea rows="5" cols="30" pInputTextarea formControlName="notes"></textarea>
   </span>
@@ -167,6 +191,6 @@
 </span>
 </div>
 
-<p-button label="Primary" styleClass="p-button-outlined" (onClick)="addDiveSession()"></p-button>
+<p-button label="Add Dive Session" styleClass="p-button-outlined" (onClick)="addDiveSession()" [disabled]="addDive.invalid"></p-button>
 
 </form>
