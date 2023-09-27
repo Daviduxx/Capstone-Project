@@ -47,13 +47,4 @@ public class AuthController {
         return new ResponseEntity<RegisterResponse>(response, HttpStatus.CREATED);
     }
     
-    // JSON inviato dal Client
-    /*{
-        "name": "Giuseppe",
-        "lastname": "Verdi",
-        "username": "giuseppevardi",
-        "email": "g.verdi@example.com",
-        "password": "qwerty",
-        "roles": ["MODERATOR", "ADMIN"]
-    }*/
 }
