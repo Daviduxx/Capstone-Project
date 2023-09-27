@@ -4,7 +4,7 @@
 
   <form [formGroup]="login" (ngSubmit)="onSubmit()">
 
-    <div class="surface-card p-4 shadow-2 border-round w-full">
+    <div class="surface-card p-4 shadow-2 border-round">
       <div class="text-center mb-5">
           <img src="../../assets/logo.png" alt="Image" height="70" class="mb-3" (click)="backToHome()">
           <div class="text-900 text-3xl font-medium mb-3">Welcome Back</div>
@@ -14,10 +14,10 @@
 
       <div>
           <label for="username" class="block text-900 font-medium mb-2">Username</label>
-          <input id="username" type="text" placeholder="Username" pInputText class="w-full mb-3" required formControlName="username">
+          <input id="username" type="text" placeholder="Username" pInputText class="w-full mb-3" required formControlName="username" minlength="3" maxlength="15">
 
           <label for="password1" class="block text-900 font-medium mb-2">Password</label>
-          <input id="password1" type="password" placeholder="Password" pInputText class="w-full mb-3" required formControlName="password">
+          <input id="password1" type="password" placeholder="Password" pInputText class="w-full mb-3" required formControlName="password" minlength="6">
 
           <!-- ----------- COOMING SOON ---------- -->
           <!-- <div class="flex align-items-center justify-content-between mb-6">
@@ -29,6 +29,7 @@
           </div> -->
 
           <button pButton pRipple label="Sign In" icon="pi pi-user" class="w-full" [disabled]="!login.valid"></button>
+          <p class="my-3 text-red-500 text-xl">{{ error }}</p>
       </div>
     </div>
 

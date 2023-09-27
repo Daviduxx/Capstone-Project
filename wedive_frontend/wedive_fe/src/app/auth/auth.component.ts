@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PasswordModule } from 'primeng/password';
 
 @Component({
   selector: 'app-auth',
@@ -28,7 +29,7 @@ export class AuthComponent implements OnInit{
         ),
       password: new FormControl(null, [
           Validators.required,
-          Validators.minLength(3)
+          Validators.minLength(6)
       ])
       }
     );
@@ -39,7 +40,6 @@ export class AuthComponent implements OnInit{
       this.aSvc.login(this.login.value).subscribe(
         resp => {
           localStorage.setItem('userLogin', JSON.stringify(resp));
-          console.log(resp);
           this.error = undefined;
           this.user = resp;
           this.router.navigate(['/profile', this.user.username])

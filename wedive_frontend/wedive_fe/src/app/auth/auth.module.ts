@@ -11,6 +11,7 @@ import { UikitModule } from '../uikit/uikit.module';
 import { InputTextModule } from 'primeng/inputtext';
 import { Button, ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
+import { PasswordModule } from 'primeng/password';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CalendarModule } from 'primeng/calendar';
     UikitModule,
     InputTextModule,
     ButtonModule,
-    CalendarModule
+    CalendarModule,
+    PasswordModule
   ]
 })
 export class AuthModule { }
