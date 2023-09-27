@@ -73,6 +73,7 @@ public class SecurityConfig {
         		.requestMatchers(HttpMethod.GET, "/users/getbyuser/**").permitAll()
         		.requestMatchers("/dives/get/**").permitAll()
         		.requestMatchers("/dives/add/**").permitAll()
+        		.requestMatchers("/dives/delete/**").permitAll()
                 .requestMatchers("/join/auth/**").permitAll()
                 .requestMatchers("/users/getbyuser/**").permitAll()
                 .anyRequest().authenticated())

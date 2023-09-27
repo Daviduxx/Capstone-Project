@@ -50,8 +50,8 @@ public class DiveController {
 	}
 	
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteDive(@PathVariable Long id){
-		return new ResponseEntity<String>(diveSvc.delete(id), HttpStatus.OK);
+	public ResponseEntity<Dive> deleteDive(@PathVariable Long id){
+		return new ResponseEntity<Dive>(diveSvc.delete(id), HttpStatus.OK);
 	}
 	
 	@PostMapping("/add/{id}")

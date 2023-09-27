@@ -83,7 +83,7 @@ deleteDive(id:number){
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
               this.deleteDive(id);
-                this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted' });
+                this.messageService.add({ severity: 'primary', summary: 'Confirmed', detail: 'Dive deleted' });
             },
             reject: (type: ConfirmEventType) => {
                 switch (type) {

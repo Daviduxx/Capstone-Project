@@ -40,7 +40,7 @@ public class DiveService {
 	
 	// DELETE REQUESTS
 	
-	public String delete(Long id) {
+	public Dive delete(Long id) {
 		if(!diveRepo.existsById(id))
 			throw new EntityNotFoundException("This dive doesn't exists!");
 		Dive d = diveRepo.findById(id).orElse(null);
@@ -48,7 +48,7 @@ public class DiveService {
 		Set<Dive> dives = u.getDives();
 		dives.remove(d);
 		diveRepo.deleteById(id);
-		return "Dive deleted succesfully!";
+		return d;
 	}
 	
 	// PUT REQUESTS
