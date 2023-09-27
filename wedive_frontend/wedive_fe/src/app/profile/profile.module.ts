@@ -24,7 +24,8 @@ import { AnimateModule } from 'primeng/animate';
 import { DivedetailComponent } from './components/divedetail/divedetail.component';
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
     declarations: [
@@ -37,7 +38,8 @@ import { MessageService } from 'primeng/api';
     providers: [
         DatePipe,
         DialogService,
-        MessageService
+        MessageService,
+        ConfirmationService
     ],
     imports: [
         CommonModule,
@@ -60,6 +62,8 @@ import { MessageService } from 'primeng/api';
         KnobModule,
         DynamicDialogModule,
         ToastModule,
+        ConfirmDialogModule
+
     ]
 })
 export class ProfileModule { }

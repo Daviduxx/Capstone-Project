@@ -23,14 +23,31 @@
         <p-tag severity="warning" value="Certification in progress" [rounded]="true"></p-tag>
         <p-tag severity="danger" value="Refused" [rounded]="true" *ngIf="!dive.certified"></p-tag>
     </div> -->
-    <div class="cardButton flex">
-      <div class="card flex justify-content-center">
+    <div class="cardButton">
+      <div class="card flex align-items-center w-full">
         <p-toast></p-toast>
         <p-button (click)="show(dive.id)" icon="pi pi-search" label="Details"></p-button>
+        <p-toast></p-toast>
+        <p-button (click)="confirm2(dive.id)" icon="pi pi-trash" styleClass="p-button-danger p-button-outlined p-button-sm mx-4"></p-button>
+      </div>
+      <!-- <p-button styleClass="p-button-outlined p-button-sm p-button-danger mx-4" icon="pi pi-trash" ></p-button> -->
     </div>
-      <p-button styleClass="p-button-outlined p-button-sm p-button-danger mx-4" icon="pi pi-trash" ></p-button>
   </div>
-  </div>
+  <p-confirmDialog #cd [style]="{ width: '70vw' }">
+    <ng-template pTemplate="header">
+        <h3 class="text-red-500">Danger Zone!</h3>
+    </ng-template>
+    <ng-template pTemplate="icon">
+        <i class="pi pi-exclamation-triangle" style="color: 'var(--red-500)'"></i>
+    </ng-template>
+    <ng-template pTemplate="message">
+        <p>Message Template</p>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <button type="button" pButton icon="pi pi-times" label="Close" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-trash" label="Confirm" (click)="cd.accept()" id="confirm"></button>
+    </ng-template>
+</p-confirmDialog>
 
 
 

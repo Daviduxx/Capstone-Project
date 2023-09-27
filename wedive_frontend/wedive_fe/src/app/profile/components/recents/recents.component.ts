@@ -4,7 +4,7 @@ import { UserService } from '../../user.service';
 import { ActivatedRoute } from '@angular/router';
 import { iDives } from 'src/app/interfaces/i-dive';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { MessageService } from 'primeng/api';
+import { ConfirmEventType, ConfirmationService, MessageService } from 'primeng/api';
 import { DivedetailComponent } from '../divedetail/divedetail.component';
 
 @Component({
@@ -18,7 +18,8 @@ export class RecentsComponent implements OnInit, OnDestroy{
     private uSvc: UserService,
     private route: ActivatedRoute,
     public messageService: MessageService,
-    public dialogService: DialogService
+    public dialogService: DialogService,
+    private confirmationService: ConfirmationService
     ) {}
 
   dives: iDives[] = [];
@@ -67,6 +68,35 @@ ngOnDestroy() {
       this.ref.close();
   }
 }
+
+deleteDive(id:number){
+  this.uSvc.deleteDive(id).subscribe(() => {
+    console.log('Dive Deleted');
+
+  })
+}
+
+ confirm2(id:number) {
+        this.confirmationService.confirm({
+            message: 'Are you sure you want to delete this dive? If you confirm your dive will be lost FOREVER!',
+            header: 'Danger Zone!',
+            icon: 'pi pi-exclamation-triangle',
+            accept: () => {
+              this.deleteDive(id);
+                this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted' });
+            },
+            reject: (type: ConfirmEventType) => {
+                switch (type) {
+                    case ConfirmEventType.REJECT:
+                        this.messageService.clear();
+                        break;
+                    case ConfirmEventType.CANCEL:
+                        this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected' });
+                        break;
+                }
+            }
+        });
+    }
 
 
 }

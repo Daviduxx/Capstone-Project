@@ -43,6 +43,10 @@ public class DiveService {
 	public String delete(Long id) {
 		if(!diveRepo.existsById(id))
 			throw new EntityNotFoundException("This dive doesn't exists!");
+		Dive d = diveRepo.findById(id).orElse(null);
+		User u = d.getUser();
+		Set<Dive> dives = u.getDives();
+		dives.remove(d);
 		diveRepo.deleteById(id);
 		return "Dive deleted succesfully!";
 	}

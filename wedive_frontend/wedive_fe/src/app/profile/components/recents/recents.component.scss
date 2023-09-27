@@ -28,3 +28,16 @@
     }
   }
 }
+
+:host::ng-deep{
+  .p-dialog{
+    border: 1px solid var(--red-500);
+    i{
+      color: var(--red-500);
+    }
+    #confirm{
+      background-color: var(--red-500);
+      border: none;
+    }
+  }
+}

@@ -15,6 +15,7 @@ export class UserService {
   GETUSER_API: string = environment.GETBYUSERNAME;
   ADDDIVE_API: string = environment.ADDDIVE;
   GETDIVE_API: string = environment.GETDIVEBYID;
+  DELETEDIVE_API: string = environment.DELETEDIVE;
 
   user!: iUser;
   dive!: iDives;
@@ -36,6 +37,10 @@ export class UserService {
 
   getDive(id:number){
     return this.http.get<iDives>(this.GETDIVE_API + id);
+  }
+
+  deleteDive(id:number){
+    return this.http.delete(this.DELETEDIVE_API + id);
   }
 
   // find the user from the username
