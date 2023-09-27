@@ -10,9 +10,30 @@ export class StatsComponent{
 
   // need to fins how to dinamically fill this props
 
-  divers: number = 500;
-  dives: number = 4400;
-  divingCenters: number = 120;
+  divers: number = 0;
+  dives: number = 0;
+  divingCenters: number = 0;
+
+  diversCounter = setInterval(() => {
+    this.divers++;
+    if(this.divers === 200){
+      clearInterval(this.diversCounter)
+    }
+  },30)
+
+  divesCounter = setInterval(() => {
+    this.dives++;
+    if(this.dives === 1500){
+      clearInterval(this.divesCounter)
+    }
+  },2)
+
+  divingCenterCounter = setInterval(() => {
+    this.divingCenters++;
+    if(this.divingCenters === 120){
+      clearInterval(this.divingCenterCounter)
+    }
+  },50)
 
   // sub!: Subscription;
   // ons$: Observable<number> = timer(200, 10);
