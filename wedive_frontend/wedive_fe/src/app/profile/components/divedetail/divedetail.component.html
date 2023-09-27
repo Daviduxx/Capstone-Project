@@ -1,105 +1,105 @@
 <div id="container">
 
-  <div id="flexContainer">
+  <div id="flexContainer" *ngIf="dive">
 
     <div id="header">
 
-        <h2>Dive n. X</h2>
+        <h2>{{ dive.name }}</h2>
     </div>
 
     <div id="body">
 
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Date</p>
-        <p class="text-sm"></p>
+        <p class="text-sm">{{ dive.date }}</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Dive type</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.type }}</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Depth</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.maxDepth }} m</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Time</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.diveTime }} min</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Water Type</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.waterType }}</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Weather</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.weather }}</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Air Temperature</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.airTemperature }} °C</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Surface Temperature</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.surfaceTemperature}} °C</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Deep Temperature</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.deepTemperature }} °C</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Visibility</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.visibility }}</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Waves</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.waves }}</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Current</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.current }}</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Suit</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.suit }}</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Ballast</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.ballast }} kg</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Tank type</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.tank }}</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Tank size</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.tankSize }}</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Initial Pressure</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.initialPressure }} bar</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Final Pressure</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.finalPressure }} bar</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Used Air</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.usedAir }} bar</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Gas Mix</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.gasMix }}</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Judgement</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.judgement }}</p>
       </div>
       <div class="item flex justify-content-between">
         <p class="text-sm text-500">Buddy</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.buddy }}</p>
       </div>
       <div class="item">
         <p class="text-sm text-500 mb-4">Notes</p>
-        <p class="text-sm">3/5/2022</p>
+        <p class="text-sm">{{ dive.notes }}</p>
       </div>
 
     </div>

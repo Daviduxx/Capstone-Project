@@ -43,7 +43,7 @@ export class RecentsComponent implements OnInit, OnDestroy{
         data: {
           id: id
         },
-        header: 'Select a Product',
+        header: 'Selected Dive',
         width: '70%',
         contentStyle: { overflow: 'auto' },
         baseZIndex: 10000,

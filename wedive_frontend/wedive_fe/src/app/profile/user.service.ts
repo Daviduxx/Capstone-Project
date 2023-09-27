@@ -1,8 +1,8 @@
+import { iDives } from './../interfaces/i-dive';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { iUser } from '../interfaces/iuser';
-import { iDives } from '../interfaces/i-dive';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -14,6 +14,7 @@ export class UserService {
 
   GETUSER_API: string = environment.GETBYUSERNAME;
   ADDDIVE_API: string = environment.ADDDIVE;
+  GETDIVE_API: string = environment.GETDIVEBYID;
 
   user!: iUser;
   dive!: iDives;
@@ -31,6 +32,10 @@ export class UserService {
   // probably dead code
   getUserData(): Observable<iUser>{
     return of(this.user);
+  }
+
+  getDive(id:number){
+    return this.http.get<iDives>(this.GETDIVE_API + id);
   }
 
   // find the user from the username

@@ -71,6 +71,7 @@ public class SecurityConfig {
         		.requestMatchers(HttpMethod.GET, "/join/**").permitAll()
         		.requestMatchers(HttpMethod.GET, "/users/**").permitAll()
         		.requestMatchers(HttpMethod.GET, "/users/getbyuser/**").permitAll()
+        		.requestMatchers("/dives/get/**").permitAll()
         		.requestMatchers("/dives/add/**").permitAll()
                 .requestMatchers("/join/auth/**").permitAll()
                 .requestMatchers("/users/getbyuser/**").permitAll()
