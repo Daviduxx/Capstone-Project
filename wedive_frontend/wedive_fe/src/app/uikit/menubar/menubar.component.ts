@@ -52,7 +52,7 @@ console.log(this.isLoggedIn);
 
       let scrolled = window.scrollY;
       let nav: any = document.querySelector('.p-menubar');
-      if(scrolled > 300){
+      if(scrolled > 200){
         nav.classList.add('scrolled')
         nav.classList.remove('removed')
       }

@@ -3,21 +3,21 @@
     background-color: #5e5c8924;
     // box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4px );
-    transition: background 800ms;
+    transition: background 1000ms;
     img{
       height: 60px;
-      transition: height 800ms;
+      transition: height 1000ms;
     }
   }
   .removed{
     // background-color: #5e5c8924;
     // box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     // backdrop-filter: blur ( 0px );
-    transition: background 800ms;
+    transition: background 1000ms;
     padding-bottom: 0;
     img{
       height: 80px;
-      transition: height 800ms;
+      transition: height 1000ms;
     }
   }
   .p-menubar{
