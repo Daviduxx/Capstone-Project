@@ -63,8 +63,8 @@ onSubmit() {
     ) {
       this.aSvc.signup(this.signup.value).subscribe(
         res => {
-          console.log(res);
           this.error = undefined;
+          this.route.navigate(['/join'])
         },
         err => {
           console.log(err.error.message);

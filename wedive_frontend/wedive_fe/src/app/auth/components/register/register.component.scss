@@ -1,9 +1,12 @@
 #form{
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-content: center;
   margin-top: 180px;
+  img{
+    &:hover{
+      cursor: pointer;
+    }
+  }
 }
 
 :host::ng-deep{
