@@ -4,12 +4,30 @@
     // box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4px );
     transition: background 800ms;
+    img{
+      height: 60px;
+      transition: height 800ms;
+    }
+  }
+  .removed{
+    // background-color: #5e5c8924;
+    // box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    // backdrop-filter: blur ( 0px );
+    transition: background 800ms;
+    padding-bottom: 0;
+    img{
+      height: 80px;
+      transition: height 800ms;
+    }
   }
   .p-menubar{
     display: flex;
     justify-content: space-between;
     padding: 20px;
     border: none;
+    img:hover{
+      cursor: pointer;
+    }
     .p-menubar-end{
       margin: 0;
       display: none;
