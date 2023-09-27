@@ -20,6 +20,9 @@
     a{
       color: var(--blue-500);
       text-decoration: none;
+      &:hover{
+        cursor: pointer;
+      }
     }
   }
 }

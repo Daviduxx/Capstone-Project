@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { guardGuard } from './auth/guard/guard.guard';
 import { ProfileComponent } from './profile/profile.component';
+import { NotfoundComponent } from './uikit/notfound/notfound.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,15 @@ const routes: Routes = [
   {
     path: 'profile/:username',
     component: ProfileComponent,
-    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) }
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
+  {
+    path: '**',
+    redirectTo: '/404'
+  },
+  {
+    path: '404',
+    component: NotfoundComponent
+  }
 ];
 
 @NgModule({

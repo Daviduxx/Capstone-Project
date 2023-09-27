@@ -5,13 +5,15 @@ import { MenubarModule } from 'primeng/menubar';
 import { FooterComponent } from './footer/footer.component';
 import { Footer } from 'primeng/api';
 import { Button, ButtonModule } from 'primeng/button';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 
 @NgModule({
   declarations: [
     MenubarComponent,
-    FooterComponent
+    FooterComponent,
+    NotfoundComponent
   ],
   exports: [
     MenubarComponent,
