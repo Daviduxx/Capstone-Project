@@ -61,9 +61,11 @@ public class DiveService {
 		return diveRepo.save(d);
 		}
 	
+	// POST REQUESTS
+	
 	public Dive addDive(DiveDto d, Long id) {
 		Dive dive = new Dive();
-		User u = uRepo.getById(id);
+		User u = uRepo.findById(id).orElse(null);
 		dive.setName(d.getName());
 		dive.setDate(LocalDate.now());
 		dive.setType(d.getType());

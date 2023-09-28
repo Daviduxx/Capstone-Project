@@ -50,17 +50,6 @@ export class RecentsComponent implements OnInit, OnDestroy{
         baseZIndex: 10000,
         maximizable: true
     });
-
-    // don't needed popup
-    // this.ref.onClose.subscribe((product: Product) => {
-    //     if (product) {
-    //         this.messageService.add({ severity: 'info', summary: 'Product Selected', detail: product.name });
-    //     }
-    // });
-
-    // this.ref.onMaximize.subscribe((value) => {
-    //     this.messageService.add({ severity: 'info', summary: 'Maximized', detail: `maximized: ${value.maximized}` });
-    // });
 }
 
 ngOnDestroy() {
