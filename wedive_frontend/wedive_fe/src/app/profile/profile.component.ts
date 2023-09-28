@@ -20,7 +20,6 @@ export class ProfileComponent {
     this.username = this.route.snapshot.params['username'];
     this.uSvc.getUser(this.username).subscribe(
       resp => {
-        console.log(resp);
         this.user = resp;
         this.uSvc.setUserData(this.user)
       }

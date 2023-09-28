@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { AuthRoutingModule } from 'src/app/auth/auth-routing.module';
 import { AuthService } from 'src/app/auth/auth.service';
+import { IUserjwt } from 'src/app/interfaces/i-userjwt';
 
 @Component({
   selector: 'app-menubar',
@@ -16,13 +17,14 @@ export class MenubarComponent implements OnInit{
   items: MenuItem[] | undefined;
   loggedItems!: MenuItem[]
   isLoggedIn: boolean = false;
+  username!: string;
 
   ngOnInit() {
 
-this.isLoggedIn = this.aSvc.isLoggedIn;
-console.log(this.isLoggedIn);
-
-    this.items = [
+  this.aSvc.restoreUser();
+  this.isLoggedIn = this.aSvc.isLoggedIn
+  this.username = this.aSvc.username;
+  this.items = [
         {
             label: 'Login',
             routerLink: '/join'
@@ -39,10 +41,19 @@ console.log(this.isLoggedIn);
 
     this.loggedItems = [
       {
+        label: 'Profile',
+        icon: 'pi pi-fw pi-user',
+        style: {
+          'border-radius': '10px'
+        },
+        command: () => this.route.navigate(['/profile', this.username])
+      },
+      {
         label: 'Logout',
         style: {
           'background-color': 'red',
-          'border-radius': '10px'
+          'border-radius': '10px',
+          'margin-right': '10px'
         },
         command: () => this.logout()
       }
