@@ -9,6 +9,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { AccordionModule } from 'primeng/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { KnobModule } from 'primeng/knob';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { KnobModule } from 'primeng/knob';
     BrowserAnimationsModule,
     KnobModule
   ],
-  providers: [],
+  providers: [
+    MessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

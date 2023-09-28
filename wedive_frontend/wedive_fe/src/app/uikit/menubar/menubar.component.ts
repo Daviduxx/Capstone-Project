@@ -1,9 +1,10 @@
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { MenuItem, MessageService } from 'primeng/api';
 import { AuthRoutingModule } from 'src/app/auth/auth-routing.module';
 import { AuthService } from 'src/app/auth/auth.service';
 import { IUserjwt } from 'src/app/interfaces/i-userjwt';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-menubar',
@@ -12,7 +13,11 @@ import { IUserjwt } from 'src/app/interfaces/i-userjwt';
 })
 export class MenubarComponent implements OnInit{
 
-  constructor ( private route: Router, private aSvc: AuthService ) { }
+  constructor (
+    private route: Router,
+    private aSvc: AuthService,
+    private msg: MessageService
+    ) { }
 
   items: MenuItem[] | undefined;
   loggedItems!: MenuItem[]
@@ -44,7 +49,8 @@ export class MenubarComponent implements OnInit{
         label: 'Profile',
         icon: 'pi pi-fw pi-user',
         style: {
-          'border-radius': '10px'
+          'border-radius': '10px',
+          'margin-right': '20px'
         },
         command: () => this.route.navigate(['/profile', this.username])
       },
@@ -52,10 +58,12 @@ export class MenubarComponent implements OnInit{
         label: 'Logout',
         style: {
           'background-color': 'red',
-          'border-radius': '10px',
-          'margin-right': '10px'
+          'border-radius': '10px'
         },
-        command: () => this.logout()
+        command: () => {
+          // this.msg.add({ severity: 'success', summary: 'Success', detail: 'Logged out!' });
+          this.logout()
+        }
       }
   ];
 

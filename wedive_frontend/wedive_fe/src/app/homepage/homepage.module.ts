@@ -14,7 +14,9 @@ import { StatsComponent } from './components/stats/stats.component';
 import { isSubscription } from 'rxjs/internal/Subscription';
 import { EcoComponent } from './components/eco/eco.component';
 import { TeamComponent } from './components/team/team.component';
-
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { MessagesModule } from 'primeng/messages';
 
 @NgModule({
   declarations: [
@@ -26,12 +28,18 @@ import { TeamComponent } from './components/team/team.component';
     EcoComponent,
     TeamComponent
   ],
+  providers: [
+    MessageService
+],
   imports: [
     CommonModule,
     HomepageRoutingModule,
     UikitModule,
     AccordionModule,
-    ButtonModule
+    ButtonModule,
+    ToastModule,
+    MessagesModule
   ]
+
 })
 export class HomepageModule { }
