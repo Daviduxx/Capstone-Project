@@ -4,5 +4,5 @@ public enum DiveType {
 	
 	SHORE,
 	JETTY,
-	BOAR
+	BOAT
 }

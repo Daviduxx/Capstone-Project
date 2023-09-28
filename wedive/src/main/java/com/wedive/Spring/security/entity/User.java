@@ -54,6 +54,8 @@ public class User{
     private Set<Licence> licences = new HashSet<>();
     @OneToMany(mappedBy="user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Dive> dives;
+    private String bannerImage;
+    private String profileImage;
 
     
 }

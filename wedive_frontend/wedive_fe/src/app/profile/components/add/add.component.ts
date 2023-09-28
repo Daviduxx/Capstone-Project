@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DropdownModule } from 'primeng/dropdown';
 import { iUser } from 'src/app/interfaces/iuser';
 import { UserService } from '../../user.service';
@@ -15,7 +15,7 @@ import { DatePipe } from '@angular/common';
 
 export class AddComponent implements OnInit{
 
-  constructor ( private uSvc:UserService, private route:ActivatedRoute, private dPipe:DatePipe ) { }
+  constructor ( private uSvc:UserService, private route:ActivatedRoute, private dPipe:DatePipe, private router:Router ) { }
 
   // props
   username!: string;
@@ -41,114 +41,143 @@ export class AddComponent implements OnInit{
     let item: iUser | null | string = localStorage.getItem('user');
     if(item){
       item = JSON.parse(item);
-      console.log(item);
       this.user = item;
-      console.log(this.user.id)
     }
 
     this.addDive = new FormGroup({
-      name: new FormControl(null), //ok
-      date: new FormControl(null), //ok
-      type: new FormControl(null), //ok
-      maxDepth: new FormControl(null), //ok
-      diveTime: new FormControl(null), //ok
-      waterType: new FormControl(null), //ok
-      waterTaste: new FormControl(null), //ok
-      weather: new FormControl(null), //ok
-      airTemperature: new FormControl(null), //ok
-      surfaceTemperature: new FormControl(null), //ok
-      deepTemperature: new FormControl(null), //ok
-      visibility: new FormControl(null), //ok
-      waves: new FormControl(null), //ok
-      current: new FormControl(null), //ok
-      suit: new FormControl(null), //ok
-      ballast: new FormControl(null), // ok
-      tank: new FormControl(null), // ok
-      tankSize: new FormControl(null), //ok
-      gasMix: new FormControl(null), // ok
-      initialPressure: new FormControl(null), //ok
-      finalPressure: new FormControl(null), //ok
-      usedAir: new FormControl(null), //ok
-      judgement: new FormControl(null), //ok
-      notes: new FormControl(null), //ok
-      buddy: new FormControl(null), //ok
+      name: new FormControl(null,
+        [
+          Validators.required,
+          Validators.minLength(3)
+        ]
+        ),
+      date: new FormControl(null, Validators.required),
+      type: new FormControl('BOAT', Validators.required),
+      maxDepth: new FormControl(null,
+        [
+          Validators.max(300),
+          Validators.min(0)
+        ]
+        ),
+      diveTime: new FormControl(null,
+        [
+          Validators.max(360),
+          Validators.min(1)
+        ]
+        ),
+      waterType: new FormControl('OCEAN', Validators.required),
+      waterTaste: new FormControl('SALTY_WATER', Validators.required),
+      weather: new FormControl('SUNNY', Validators.required),
+      airTemperature: new FormControl(null,
+        [
+          Validators.required,
+          Validators.min(-100),
+          Validators.max(100)
+        ]
+        ),
+      surfaceTemperature: new FormControl(null,
+        [
+          Validators.required,
+          Validators.min(-100),
+          Validators.max(100)
+        ]
+        ),
+      deepTemperature: new FormControl(null,
+        [
+          Validators.required,
+          Validators.min(-100),
+          Validators.max(100)
+        ]
+        ),
+      visibility: new FormControl('EXCELLENT', Validators.required),
+      waves: new FormControl('NONE', Validators.required),
+      current: new FormControl('NONE', Validators.required),
+      suit: new FormControl('NONE', Validators.required),
+      ballast: new FormControl(null,
+        [
+          Validators.required,
+          Validators.min(0),
+          Validators.max(100)
+        ]
+        ),
+      tank: new FormControl('OTHER', Validators.required),
+      tankSize: new FormControl(null,
+        [
+          Validators.required,
+          Validators.min(0),
+          Validators.max(100)
+        ]
+        ), //ok
+      gasMix: new FormControl('AIR', Validators.required),
+      initialPressure: new FormControl(null,
+        [
+          Validators.required,
+          Validators.min(0),
+          Validators.max(300)
+        ]
+        ),
+      finalPressure: new FormControl(null,
+        [
+          Validators.required,
+          Validators.min(0),
+          Validators.max(300)
+        ]
+        ),
+      usedAir: new FormControl(null),
+      judgement: new FormControl('EXCELLENT', Validators.required),
+      notes: new FormControl(null),
+      buddy: new FormControl(null),
     });
   }
 
   addDiveSession(){
 
-    console.log(this.addDive.value);
-
-    // mapping data for the server, maybe i need to delete logs
+    // mapping data for the server
     this.addDive.value.date = this.dPipe.transform(this.addDive.value.date, 'yyyy-MM-dd');
-    console.log(this.addDive.value.date);
 
     let value:string = this.addDive.get('type')?.value;
     this.addDive.value.type = value.toUpperCase();
-    console.log(this.addDive.value.type);
 
     let waterType:string = this.addDive.get('waterType')?.value;
     this.addDive.value.waterType = waterType.toUpperCase();
-    console.log(this.addDive.value.waterType);
 
     let waterTaste:string = this.addDive.get('waterTaste')?.value;
     waterTaste = waterTaste.replace(" ", "_");
     this.addDive.value.waterTaste = waterTaste.toUpperCase();
-    console.log(this.addDive.value.waterTaste);
 
     let weather:string = this.addDive.get('weather')?.value;
     weather = weather.replace(" ", "_");
-    this.addDive.value.weather = weather.toUpperCase();
-    console.log(this.addDive.value.weather);
-
-    console.log(this.addDive.value.airTemperature);
-    console.log(this.addDive.value.surfaceTemperature);
-    console.log(this.addDive.value.deepTemperature);
+    this.addDive.value.weather = weather.toUpperCase();;
 
     let visibility:string = this.addDive.get('visibility')?.value;
     this.addDive.value.visibility = visibility.toUpperCase();
-    console.log(this.addDive.value.visibility);
 
     let waves:string = this.addDive.get('waves')?.value;
     this.addDive.value.waves = waves.toUpperCase();
-    console.log(this.addDive.value.waves);
 
     let current:string = this.addDive.get('current')?.value;
     this.addDive.value.current = current.toUpperCase();
-    console.log(this.addDive.value.current);
 
     let suit:string = this.addDive.get('suit')?.value;
     suit = suit.replace(" ", "_");
     this.addDive.value.suit = suit.toUpperCase();
-    console.log(this.addDive.value.suit);
-
-    console.log(this.addDive.value.ballast);
 
     let tank:string = this.addDive.get('tank')?.value;
     this.addDive.value.tank = tank.toUpperCase();
-    console.log(this.addDive.value.tank);
 
     let gasMix:string = this.addDive.get('gasMix')?.value;
     this.addDive.value.gasMix = gasMix.toUpperCase();
-    console.log(this.addDive.value.gasMix);
-
-    console.log(this.addDive.value.initialPressure);
-    console.log(this.addDive.value.finalPressure);
 
     let judgement:string = this.addDive.get('judgement')?.value;
     judgement = judgement.replace(" ", "_");
     this.addDive.value.judgement = judgement.toUpperCase();
-    console.log(this.addDive.value.judgement);
-
-    console.log(this.addDive.value.notes);
-    console.log(this.addDive.value.buddy);
-
-    console.log(this.addDive.value);
 
     // send data to the server (needs the user id)
     this.uSvc.addDive(this.addDive.value, this.user.id).subscribe(
       d => {
         console.log(d);
+        this.addDive.reset();
+        this.router.navigate(['../'])
       }
     )
   }

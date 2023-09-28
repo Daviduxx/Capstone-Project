@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Observable, Subscription, timer } from 'rxjs';
 
 @Component({
@@ -6,13 +6,18 @@ import { Observable, Subscription, timer } from 'rxjs';
   templateUrl: './stats.component.html',
   styleUrls: ['./stats.component.scss']
 })
-export class StatsComponent{
+export class StatsComponent implements AfterViewInit{
 
-  // need to fins how to dinamically fill this props
+   // need to fins how to dinamically fill this props
 
-  divers: number = 0;
-  dives: number = 0;
-  divingCenters: number = 0;
+   divers: number = 0;
+   dives: number = 0;
+   divingCenters: number = 0;
+
+  ngAfterViewInit(): void {
+    console.log('view init');
+
+  }
 
   diversCounter = setInterval(() => {
     this.divers++;
