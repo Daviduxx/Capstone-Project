@@ -20,7 +20,8 @@ export class AddComponent implements OnInit{
   // props
   username!: string;
   user!: any; //weird typing but is the only one that works
-
+  maxDate: Date = new Date();
+  error: string | undefined
   addDive!: FormGroup;
 
   diveType: string[] = ['Boat', 'Jetty', 'Shore'];
@@ -132,9 +133,32 @@ export class AddComponent implements OnInit{
 
   addDiveSession(){
 
-    // mapping data for the server
-    this.addDive.value.date = this.dPipe.transform(this.addDive.value.date, 'yyyy-MM-dd');
-
+    if(
+      this.addDive.value.name &&
+      this.addDive.value.date &&
+      this.addDive.value.date < this.maxDate &&
+      this.addDive.value.type &&
+      this.addDive.value.maxDepth &&
+      this.addDive.value.diveTime &&
+      this.addDive.value.waterType &&
+      this.addDive.value.waterTaste &&
+      this.addDive.value.weather&&
+      this.addDive.value.airTemperature &&
+      this.addDive.value.surfaceTemperature &&
+      this.addDive.value.deepTemperature &&
+      this.addDive.value.visibility &&
+      this.addDive.value.waves &&
+      this.addDive.value.current &&
+      this.addDive.value.suit &&
+      this.addDive.value.ballast &&
+      this.addDive.value.tank &&
+      this.addDive.value.tankSize &&
+      this.addDive.value.gasMix &&
+      this.addDive.value.initialPressure &&
+      this.addDive.value.finalPressure &&
+      this.addDive.value.judgement
+    ) { this.addDive.value.date = this.dPipe.transform(this.addDive.value.date, 'yyyy-MM-dd');
+     // Capitalize type, waterType, and other relevant fields
     let value:string = this.addDive.get('type')?.value;
     this.addDive.value.type = value.toUpperCase();
 
@@ -177,9 +201,17 @@ export class AddComponent implements OnInit{
       d => {
         console.log(d);
         this.addDive.reset();
-        this.router.navigate(['../'])
+        this.router.navigate(['profile/' + this.user.username])
+      },
+
+      (error) => {
+        console.error('Error while adding dive:', error);
+        this.error = error
       }
     )
+    }
+
+
   }
 
 }
