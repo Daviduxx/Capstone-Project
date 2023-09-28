@@ -28,15 +28,12 @@ export class RecentsComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.username = this.route.snapshot.params['username'];
-    console.log(this.username)
     this.uSvc.getUser(this.username).subscribe(
       resp => {
-        console.log(resp);
-
         this.dives = resp.dives;
+        this.dives.sort(function(a,b){return b.id - a.id})
       }
     )
-
   }
 
   show(id:number) {
@@ -61,7 +58,8 @@ ngOnDestroy() {
 deleteDive(id:number){
   this.uSvc.deleteDive(id).subscribe(() => {
     console.log('Dive Deleted');
-
+    let index:number = this.dives.findIndex(d => d.id == id);
+    this.dives.splice(index,1);
   })
 }
 
@@ -72,7 +70,7 @@ deleteDive(id:number){
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
               this.deleteDive(id);
-                this.messageService.add({ severity: 'primary', summary: 'Confirmed', detail: 'Dive deleted' });
+                this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'Dive deleted' });
             },
             reject: (type: ConfirmEventType) => {
                 switch (type) {
