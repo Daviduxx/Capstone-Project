@@ -5,10 +5,12 @@ import { RecentsComponent } from './components/recents/recents.component';
 import { AddComponent } from './components/add/add.component';
 import { DivedetailComponent } from './components/divedetail/divedetail.component';
 import { NotfoundComponent } from '../uikit/notfound/notfound.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const routes: Routes = [
   { path: '', component: RecentsComponent },
   { path: 'add', component: AddComponent},
+  { path: 'settings', component: SettingsComponent },
    {
     path: '**',
     redirectTo: '/404'

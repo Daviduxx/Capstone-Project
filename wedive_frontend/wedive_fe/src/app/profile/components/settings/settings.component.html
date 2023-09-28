@@ -1,0 +1,68 @@
+<h1 class="text-center text-5xl mb-5">Your<span class="text-blue-700"> profile</span></h1>
+
+<p class="text-center text-xl my-5 px-7">
+  Change whatever you want about your personal account, then click on the "Save" button</p>
+
+<form [formGroup]="settings" class="border-round-xl border-2 border-primary-900 p-4" >
+
+
+<div class="card">
+  <span class="p-float-label">
+    <input type="text" pInputText formControlName="name" class="w-full" required minlength="3"/>
+    <label htmlFor="username">Name:</label>
+  </span>
+</div>
+
+<div class="card">
+  <span class="p-float-label">
+    <input type="text" pInputText formControlName="surname" class="w-full" required minlength="3"/>
+    <label htmlFor="username">Surame:</label>
+  </span>
+</div>
+
+<div class="card">
+  <span class="p-float-label">
+    <input type="text" pInputText formControlName="username" class="w-full" required minlength="3"/>
+    <label htmlFor="username">Username:</label>
+  </span>
+</div>
+
+<div class="card">
+  <span class="p-float-label">
+    <input type="text" pInputText formControlName="email" class="w-full" required minlength="3"/>
+    <label htmlFor="username">E-Mail:</label>
+  </span>
+</div>
+
+<div class="card">
+  <span class="p-float-label">
+    <input type="email" pInputText formControlName="phoneNumber" class="w-full" required minlength="3"/>
+    <label htmlFor="username">Phone Number:</label>
+  </span>
+</div>
+
+<div class="card">
+  <span class="p-float-label">
+    <input type="password" pInputText formControlName="password" class="w-full" required minlength="6"/>
+    <label htmlFor="username">Change Password:</label>
+  </span>
+</div>
+
+<div class="card">
+  <span class="p-float-label">
+    <input type="text" pInputText formControlName="bannerImage" class="w-full"/>
+    <label htmlFor="username">Add a Banner Image:</label>
+  </span>
+</div>
+
+<div class="card">
+  <span class="p-float-label">
+    <input type="text" pInputText formControlName="profileImage" class="w-full"/>
+    <label htmlFor="username">Add a Profile Image:</label>
+  </span>
+</div>
+
+
+<p-button label="SAVE" styleClass="p-button-outlined" (onClick)="changeSettings()"></p-button>
+<p class="my-3 text-red-500 text-xl">{{ error }}</p>
+</form>

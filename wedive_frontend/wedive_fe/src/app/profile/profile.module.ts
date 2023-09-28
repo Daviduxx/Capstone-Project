@@ -26,6 +26,7 @@ import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
     declarations: [
@@ -34,6 +35,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
         RecentsComponent,
         AddComponent,
         DivedetailComponent,
+        SettingsComponent,
     ],
     providers: [
         DatePipe,
