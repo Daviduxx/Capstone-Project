@@ -1,8 +1,8 @@
+import { iUser } from './../interfaces/iuser';
 import { iDives } from './../interfaces/i-dive';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { iUser } from '../interfaces/iuser';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -13,6 +13,7 @@ export class UserService {
   // andpoints & props
 
   GETUSER_API: string = environment.GETBYUSERNAME;
+  PUTUSER_API: string = environment.USERPUT;
   ADDDIVE_API: string = environment.ADDDIVE;
   GETDIVE_API: string = environment.GETDIVEBYID;
   DELETEDIVE_API: string = environment.DELETEDIVE;
@@ -57,5 +58,15 @@ export class UserService {
   // add dive entity, based on the user's id
   addDive(dive:iDives, id:number){
     return this.http.post<iDives>(this.ADDDIVE_API + id, dive);
+  }
+
+  // edit a user
+  editUser(userSetting:iUser, id:number){
+    let json = localStorage.getItem('userLogin');
+    if(json) {
+      let userLogin = JSON.parse(json);
+      this.headers = this.headers.set('Authorization', 'Bearer ' + userLogin.accessToken);
+    }
+    return this.http.patch<iUser>(this.PUTUSER_API + id, userSetting, { headers: this.headers });
   }
 }

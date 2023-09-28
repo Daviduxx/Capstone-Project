@@ -4,6 +4,8 @@ export const environment = {
   LOGIN: 'http://localhost:8080/join/auth/login',
   // GET THE USER
   GETBYUSERNAME: 'http://localhost:8080/users/getbyuser/',
+  // PUT REQUEST ON USER
+  USERPUT: 'http://localhost:8080/users/put/',
   //DIVE REQUEST POST
   ADDDIVE: 'http://localhost:8080/dives/add/',
   GETDIVEBYID: 'http://localhost:8080/dives/get/',

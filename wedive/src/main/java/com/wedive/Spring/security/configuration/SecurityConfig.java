@@ -76,6 +76,7 @@ public class SecurityConfig {
         		.requestMatchers("/dives/delete/**").permitAll()
                 .requestMatchers("/join/auth/**").permitAll()
                 .requestMatchers("/users/getbyuser/**").permitAll()
+                .requestMatchers("/users/put/**").permitAll()
                 .anyRequest().authenticated())
         .exceptionHandling( exception -> exception
                 .authenticationEntryPoint(authenticationEntryPoint)

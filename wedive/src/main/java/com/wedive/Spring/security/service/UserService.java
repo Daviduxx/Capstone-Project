@@ -67,20 +67,20 @@ public class UserService {
 		 exUser.setBirthday(uDto.getBirthday());
 		 exUser.setPhoneNumber(uDto.getPhoneNumber());
 		// exUser.setDate(uDto.getDate());
-		 exUser.setPassword(passwordEncoder.encode(uDto.getPassword()));
+		// exUser.setPassword(passwordEncoder.encode(uDto.getPassword()));
 		 //exUser.setAddress(uDto.getAddress());
 		// exUser.setDivingCenter(uDto.getDivingCenter());
 		 exUser.setLicences(uDto.getLicences());
 		 
 		 //ROLES
-		 Set<Role> roles = new HashSet<>();	  
-		 Role userRole = null;
-		 if(uDto.getRoles().equals("ADMIN")) userRole = roleRepository.findByRoleName(ERole.ROLE_ADMIN).get();
-	    	else if(uDto.getRoles().equals("MODERATOR")) userRole = roleRepository.findByRoleName(ERole.ROLE_MODERATOR).get();
-	    	else userRole = roleRepository.findByRoleName(ERole.ROLE_USER).get();
-	    // Role userRole = roleRepository.findByRoleName(ERole.ROLE_USER).get();
-	     roles.add(userRole);
-	     exUser.setRoles(roles);   
+//		 Set<Role> roles = new HashSet<>();	  
+//		 Role userRole = null;
+//		 if(uDto.getRoles().equals("ADMIN")) userRole = roleRepository.findByRoleName(ERole.ROLE_ADMIN).get();
+//	    	else if(uDto.getRoles().equals("MODERATOR")) userRole = roleRepository.findByRoleName(ERole.ROLE_MODERATOR).get();
+//	    	else userRole = roleRepository.findByRoleName(ERole.ROLE_USER).get();
+//	    // Role userRole = roleRepository.findByRoleName(ERole.ROLE_USER).get();
+//	     roles.add(userRole);
+//	     exUser.setRoles(roles);   
 	     
 	     //DIVES
 	     Set<Dive> dives = uDto.getDives();
