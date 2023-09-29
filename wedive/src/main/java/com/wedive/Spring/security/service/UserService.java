@@ -67,10 +67,12 @@ public class UserService {
 		 exUser.setBirthday(uDto.getBirthday());
 		 exUser.setPhoneNumber(uDto.getPhoneNumber());
 		// exUser.setDate(uDto.getDate());
-		// exUser.setPassword(passwordEncoder.encode(uDto.getPassword()));
+		 if(uDto.getPassword() != null) {
+		 exUser.setPassword(passwordEncoder.encode(uDto.getPassword()));
+		 }
 		 //exUser.setAddress(uDto.getAddress());
 		// exUser.setDivingCenter(uDto.getDivingCenter());
-		 exUser.setLicences(uDto.getLicences());
+		 //exUser.setLicences(uDto.getLicences());
 		 
 		 //ROLES
 //		 Set<Role> roles = new HashSet<>();	  
@@ -83,14 +85,14 @@ public class UserService {
 //	     exUser.setRoles(roles);   
 	     
 	     //DIVES
-	     Set<Dive> dives = uDto.getDives();
-	     dives.forEach(d -> d.setUser(exUser));
-	     exUser.setDives(dives);
-	     
-	     Address address = uDto.getAddress();
-	     if(address != null) {
-	    	 addRepo.save(address);
-	    	 exUser.setAddress(address);	     }
+//	     Set<Dive> dives = uDto.getDives();
+//	     dives.forEach(d -> d.setUser(exUser));
+//	     exUser.setDives(dives);
+//	     
+//	     Address address = uDto.getAddress();
+//	     if(address != null) {
+//	    	 addRepo.save(address);
+//	    	 exUser.setAddress(address);	     }
 	     
 	     return uRepo.save(exUser);
 		}
