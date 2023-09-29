@@ -211,7 +211,7 @@ export class AddComponent implements OnInit{
     )
     }
     else{
-      this.error = 'Something went wrong. Please make shure you have filled al the inputs'
+      this.error = 'Something went wrong. Please make shure you have filled all the inputs'
     }
 
 

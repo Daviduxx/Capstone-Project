@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { iUser } from 'src/app/interfaces/iuser';
 import { UserService } from '../../user.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-settings',
@@ -11,7 +12,7 @@ import { UserService } from '../../user.service';
 })
 export class SettingsComponent implements OnInit{
 
-  constructor ( private uSvc:UserService ) {}
+  constructor ( private uSvc:UserService, private messageService: MessageService ) {}
 
   settings!: FormGroup;
   maxDate: Date = new Date();
@@ -25,7 +26,6 @@ export class SettingsComponent implements OnInit{
       item = JSON.parse(item);
       this.user = item;
     }
-    console.log(this.user.password);
 
     this.settings = new FormGroup({
       name: new FormControl(this.user.name,
@@ -61,14 +61,30 @@ export class SettingsComponent implements OnInit{
       bannerImage: new FormControl(this.user.bannerImage),
       profileImage: new FormControl(this.user.profileImage)
     });
-    console.log(this.user.password);
+    console.log(this.user.bannerImage);
+
   }
 
   changeSettings(){
-    this.uSvc.editUser(this.settings.value, this.user.id).subscribe((resp) => {
-      console.log(resp);
+    if(
+      this.settings.value.name &&
+      this.settings.value.surname &&
+      this.settings.value.username &&
+      this.settings.value.email
+    ) {
+      this.uSvc.editUser(this.settings.value, this.user.id).subscribe((resp) => {
+        this.user = resp;
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Profile settings changed!' });
+        this.uSvc.setUserData(this.user)
+      },
+      (error) => {
+        console.error('Error while change user settings:', error);
+        this.error = error
+      })
+    } else {
+      this.error = 'Something went wrong. Please make shure you have filled all the required inputs'
+    }
 
-    })
   }
 
 

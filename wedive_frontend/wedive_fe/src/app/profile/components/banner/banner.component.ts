@@ -18,16 +18,31 @@ export class BannerComponent implements OnInit{
  constructor( private uSvc: UserService, private route: ActivatedRoute, private router:Router ) { }
 
 username: string | null = null;
-user: iUser | null = null;
+user!: any;
 
   // same as profile.ts. probably mus be changed in the add.ts way
   ngOnInit(): void {
+    this.uSvc.getUserData().subscribe((resp) => {
+      this.user = resp;
+    })
     this.username = this.route.snapshot.params['username'];
     this.uSvc.getUser(this.username).subscribe(
       resp => {
+        console.log(resp)
         this.user = resp;
       }
     )
+    // let item: iUser | null | string = localStorage.getItem('user');
+    // if(item){
+    //   item = JSON.parse(item);
+    //   this.user = item;
+    //   console.log(this.user);
+
+    // }
+    // let bannerImg:any = document.querySelector('#bannerImg');
+    // if(this.user){
+    //   this.bannerImg = this.user.bannerImage
+    // }
   }
 
 

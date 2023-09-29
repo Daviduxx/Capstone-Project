@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,9 +47,9 @@ public class UserController {
 			return new ResponseEntity<User>(uSvc.getuserByUsername(un), HttpStatus.OK);
 		}
 		
-		@PatchMapping("/put/{id}")
+		@PutMapping("/put/{id}")
 		@PreAuthorize("isAuthenticated()")
-		public ResponseEntity<?> addDive(@PathVariable Long id, @RequestBody UpdateDTO u){
+		public ResponseEntity<User> addDive(@PathVariable Long id, @RequestBody UpdateDTO u){
 			User user = uSvc.update(id, u);
 			return new ResponseEntity<User>(user, HttpStatus.OK);
 		}

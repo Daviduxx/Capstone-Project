@@ -71,8 +71,12 @@ public class UserService {
 		 exUser.setPhoneNumber(uDto.getPhoneNumber());
 		// exUser.setDate(uDto.getDate());
 		 if(uDto.getPassword() != null) {
-		 exUser.setPassword(passwordEncoder.encode(uDto.getPassword()));
+			 exUser.setPassword(passwordEncoder.encode(uDto.getPassword()));			 
 		 }
+		 exUser.setBannerImage(uDto.getBannerImage());
+		 if(uDto.getProfileImage() != null)
+		 exUser.setProfileImage(uDto.getProfileImage());
+		
 		 //exUser.setAddress(uDto.getAddress());
 		// exUser.setDivingCenter(uDto.getDivingCenter());
 		 //exUser.setLicences(uDto.getLicences());
@@ -96,7 +100,8 @@ public class UserService {
 //	     if(address != null) {
 //	    	 addRepo.save(address);
 //	    	 exUser.setAddress(address);	     }
-	     
+	     System.out.println(exUser);
+	     System.out.println(uDto.getBannerImage());
 	     return uRepo.save(exUser);
 		}
     

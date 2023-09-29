@@ -25,17 +25,19 @@ import lombok.ToString;
 		 
 		    private String name;
 		    private String surname;		   
-		    private LocalDate birthday;		    
+		    //private LocalDate birthday;		    
 		    private String username;		    
 		    private String email;
 		    private String password;
 		    private String phoneNumber;		     
-		    private LocalDateTime date; 	
-		    private Set<Role> roles;		   
-		    private Address address;		   
-		    private Set<Licence> licences;		 
-		    private DivingCenter divingCenter;		    
-		    private Set<Dive> dives;
+		   // private LocalDateTime date; 	
+		  //  private Set<Role> roles;		   
+		   // private Address address;		   
+		   // private Set<Licence> licences;		 
+		  //  private DivingCenter divingCenter;		    
+		  //  private Set<Dive> dives;
+		    private String bannerImage;
+		    private String profileImage;
 		    
 	}
 

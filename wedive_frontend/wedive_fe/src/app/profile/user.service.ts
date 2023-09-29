@@ -67,6 +67,6 @@ export class UserService {
       let userLogin = JSON.parse(json);
       this.headers = this.headers.set('Authorization', 'Bearer ' + userLogin.accessToken);
     }
-    return this.http.patch<iUser>(this.PUTUSER_API + id, userSetting, { headers: this.headers });
+    return this.http.put<iUser>(this.PUTUSER_API + id, userSetting, { headers: this.headers });
   }
 }

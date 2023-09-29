@@ -12,6 +12,8 @@ export interface iUser {
   address: Address
   licences: any[]
   dives: Dfe[]
+  bannerImage: string
+  profileImage: string
 }
 
 export interface Role {

@@ -44,7 +44,7 @@
 
 <div class="card">
   <span class="p-float-label">
-    <input type="number" pInputText formControlName="phoneNumber" class="w-full" required minlength="3"/>
+    <input type="number" pInputText formControlName="phoneNumber" class="w-full" minlength="3"/>
     <label htmlFor="username">Phone Number:</label>
   </span>
 </div>
@@ -52,7 +52,7 @@
 <div class="card">
   <span class="p-float-label">
     <input type="text" pInputText formControlName="bannerImage" class="w-full"/>
-    <label htmlFor="username">Add a Banner Image:</label>
+    <label htmlFor="bannerImage">Add a Banner Image:</label>
   </span>
 </div>
 
@@ -64,6 +64,8 @@
 </div>
 
 
-<p-button label="SAVE" styleClass="p-button-outlined" (onClick)="changeSettings()" [disabled]="!settings.valid"></p-button>
+<p-button label="SAVE" styleClass="p-button" (onClick)="changeSettings()" [disabled]="!settings.valid"></p-button>
+<p-button label="GO BACK" styleClass="p-button-outlined mx-4" [routerLink]="['../']"></p-button>
+<p-toast></p-toast>
 <p class="my-3 text-red-500 text-xl">{{ error }}</p>
 </form>
