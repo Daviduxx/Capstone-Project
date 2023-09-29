@@ -59,10 +59,13 @@ public class UserService {
 			throw new EntityNotFoundException("This user doesn't exists!");
 		
 		 User exUser = uRepo.findById(id).orElseThrow(() -> new EntityNotFoundException("This user doesn't exists!"));
-		 
-		 exUser.setName(uDto.getName());
+		 if(uDto.getName() != null) {
+		 exUser.setName(uDto.getName());}
+		 if(uDto.getSurname() != null)
 		 exUser.setSurname(uDto.getSurname());
+		 if(uDto.getEmail() != null)
 		 exUser.setEmail(uDto.getEmail());
+		 if(uDto.getUsername() != null)
 		 exUser.setUsername(uDto.getUsername());
 		 //exUser.setBirthday(uDto.getBirthday());
 		 exUser.setPhoneNumber(uDto.getPhoneNumber());

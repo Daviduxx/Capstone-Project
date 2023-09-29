@@ -1,6 +1,6 @@
 import { PasswordModule } from 'primeng/password';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { iUser } from 'src/app/interfaces/iuser';
 import { UserService } from '../../user.service';
 
@@ -28,10 +28,34 @@ export class SettingsComponent implements OnInit{
     console.log(this.user.password);
 
     this.settings = new FormGroup({
-      name: new FormControl(this.user.name),
-      surname: new FormControl(this.user.surname),
-      username: new FormControl(this.user.username),
-      email: new FormControl(this.user.email),
+      name: new FormControl(this.user.name,
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(15),
+        ],
+        ),
+      surname: new FormControl(this.user.surname,
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(25),
+        ]
+        ),
+      username: new FormControl(this.user.username,
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(15),
+        ]
+        ),
+      email: new FormControl(this.user.email,
+        [
+          Validators.required,
+         Validators.email,
+         Validators.pattern("^[a-z0-9.]{3,20}@[a-z]{2,7}\\.[a-z]{2,5}$")
+        ]
+        ),
       password: new FormControl(null),
       phoneNumber: new FormControl(this.user.phoneNumber),
       bannerImage: new FormControl(this.user.bannerImage),

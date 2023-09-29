@@ -29,14 +29,14 @@
 
 <div class="card">
   <span class="p-float-label">
-    <input type="text" pInputText formControlName="email" class="w-full" required minlength="3"/>
+    <input type="email" pInputText formControlName="email" class="w-full" required minlength="3"/>
     <label htmlFor="username">E-Mail:</label>
   </span>
 </div>
 
 <div class="card">
   <span class="p-float-label">
-    <input type="password" pInputText formControlName="password" class="w-full" required minlength="3"/>
+    <input type="password" pInputText formControlName="password" class="w-full"/>
     <label htmlFor="username">Password:</label>
   </span>
 </div>
@@ -44,7 +44,7 @@
 
 <div class="card">
   <span class="p-float-label">
-    <input type="email" pInputText formControlName="phoneNumber" class="w-full" required minlength="3"/>
+    <input type="number" pInputText formControlName="phoneNumber" class="w-full" required minlength="3"/>
     <label htmlFor="username">Phone Number:</label>
   </span>
 </div>
@@ -64,6 +64,6 @@
 </div>
 
 
-<p-button label="SAVE" styleClass="p-button-outlined" (onClick)="changeSettings()"></p-button>
+<p-button label="SAVE" styleClass="p-button-outlined" (onClick)="changeSettings()" [disabled]="!settings.valid"></p-button>
 <p class="my-3 text-red-500 text-xl">{{ error }}</p>
 </form>
