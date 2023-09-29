@@ -64,7 +64,7 @@ public class UserService {
 		 exUser.setSurname(uDto.getSurname());
 		 exUser.setEmail(uDto.getEmail());
 		 exUser.setUsername(uDto.getUsername());
-		 exUser.setBirthday(uDto.getBirthday());
+		 //exUser.setBirthday(uDto.getBirthday());
 		 exUser.setPhoneNumber(uDto.getPhoneNumber());
 		// exUser.setDate(uDto.getDate());
 		 if(uDto.getPassword() != null) {

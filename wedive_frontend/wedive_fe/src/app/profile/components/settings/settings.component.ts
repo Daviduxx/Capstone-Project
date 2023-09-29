@@ -32,6 +32,7 @@ export class SettingsComponent implements OnInit{
       surname: new FormControl(this.user.surname),
       username: new FormControl(this.user.username),
       email: new FormControl(this.user.email),
+      password: new FormControl(null),
       phoneNumber: new FormControl(this.user.phoneNumber),
       bannerImage: new FormControl(this.user.bannerImage),
       profileImage: new FormControl(this.user.profileImage)
@@ -40,14 +41,6 @@ export class SettingsComponent implements OnInit{
   }
 
   changeSettings(){
-    // for (const controlName in this.settings.controls) {
-    //   if (this.settings.controls.hasOwnProperty(controlName)) {
-    //     const formControl = this.settings.get(controlName);
-    //     if (formControl) {
-    //       this.user[controlName] = formControl.value;
-    //     }
-    //   }
-    // }
     this.uSvc.editUser(this.settings.value, this.user.id).subscribe((resp) => {
       console.log(resp);
 
