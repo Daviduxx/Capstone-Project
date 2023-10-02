@@ -58,8 +58,12 @@ ngOnDestroy() {
 deleteDive(id:number){
   this.uSvc.deleteDive(id).subscribe(() => {
     console.log('Dive Deleted');
+    setTimeout(() => {
     let index:number = this.dives.findIndex(d => d.id == id);
     this.dives.splice(index,1);
+    }, 1300)
+    // let index:number = this.dives.findIndex(d => d.id == id);
+    // this.dives.splice(index,1);
   })
 }
 
