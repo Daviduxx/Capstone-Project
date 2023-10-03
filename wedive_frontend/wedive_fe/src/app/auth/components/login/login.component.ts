@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit{
 
+  // i don't need this component at the moment
   constructor( private aSvc: AuthService, private router: Router) {}
 
   login!: FormGroup;

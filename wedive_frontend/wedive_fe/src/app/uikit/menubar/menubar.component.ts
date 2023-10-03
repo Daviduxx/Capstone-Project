@@ -67,6 +67,7 @@ export class MenubarComponent implements OnInit{
       }
   ];
 
+    // Menubar animation
     window.addEventListener('scroll', () => {
 
       let scrolled = window.scrollY;

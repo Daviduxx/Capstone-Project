@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./team.component.scss']
 })
 export class TeamComponent {
-
+  // COMING SOON: cards will filled dinamically
 }

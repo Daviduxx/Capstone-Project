@@ -134,6 +134,7 @@ export class AddComponent implements OnInit{
   addDiveSession(){
 
     if(
+      // tons of checks
       this.addDive.value.name &&
       this.addDive.value.date &&
       this.addDive.value.date < this.maxDate &&

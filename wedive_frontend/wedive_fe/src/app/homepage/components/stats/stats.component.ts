@@ -8,15 +8,13 @@ import { Observable, Subscription, timer } from 'rxjs';
 })
 export class StatsComponent implements AfterViewInit{
 
-   // need to fins how to dinamically fill this props
-
    divers: number = 0;
    dives: number = 0;
    divingCenters: number = 0;
 
+   // this doesn't work. Need to find how to load this components only if visible in the viewport
   ngAfterViewInit(): void {
     console.log('view init');
-
   }
 
   diversCounter = setInterval(() => {
@@ -39,49 +37,4 @@ export class StatsComponent implements AfterViewInit{
       clearInterval(this.divingCenterCounter)
     }
   },50)
-
-  // sub!: Subscription;
-  // ons$: Observable<number> = timer(200, 10);
-
-  // ngOnInit(): void {
-  //  this.sub = this.ons$.subscribe(() => {
-  //   this.divesNumber();
-  //   this.diversNumber();
-  //   this.divingCNumber();
-  //   this.divesDiv();
-  //   this.diversDiv();
-  //   this.divingCDiv();
-  //  })
-  // }
-
-  // private divesNumber(){
-  //   this.dives += 1;
-  // }
-
-  // private diversNumber(){
-  //   this.divers += 1;
-  // }
-
-  // private divingCNumber(){
-  //   this.divingCenters += 1;
-  // }
-
-  // private divesDiv() {
-  //   if (this.dives === 4000) {
-  //     this.sub.unsubscribe()
-  //   }
-  // }
-
-  // private diversDiv() {
-  //   if (this.divers === 1000) {
-  //     this.sub.unsubscribe()
-  //   }
-  // }
-  // private divingCDiv() {
-  //   if (this.divingCenters === 500) {
-  //     this.sub.unsubscribe()
-  //   }
-  // }
-
-
 }

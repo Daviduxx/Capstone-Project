@@ -28,7 +28,6 @@ user!: any;
     this.username = this.route.snapshot.params['username'];
     this.uSvc.getUser(this.username).subscribe(
       resp => {
-        console.log(resp)
         this.user = resp;
       }
     )

@@ -62,8 +62,6 @@ deleteDive(id:number){
     let index:number = this.dives.findIndex(d => d.id == id);
     this.dives.splice(index,1);
     }, 1300)
-    // let index:number = this.dives.findIndex(d => d.id == id);
-    // this.dives.splice(index,1);
   })
 }
 

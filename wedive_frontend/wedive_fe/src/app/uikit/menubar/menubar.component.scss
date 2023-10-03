@@ -1,7 +1,6 @@
 :host::ng-deep{
   .scrolled{
     background-color: #5e5c8924;
-    // box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4px );
     transition: background 1000ms;
     img{
@@ -10,9 +9,6 @@
     }
   }
   .removed{
-    // background-color: #5e5c8924;
-    // box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    // backdrop-filter: blur ( 0px );
     transition: background 1000ms;
     padding-bottom: 0;
     img{

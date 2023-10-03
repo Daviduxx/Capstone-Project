@@ -67,6 +67,7 @@ export class SettingsComponent implements OnInit{
 
   changeSettings(){
     if(
+      // nullable false props can't be null
       this.settings.value.name &&
       this.settings.value.surname &&
       this.settings.value.username &&
