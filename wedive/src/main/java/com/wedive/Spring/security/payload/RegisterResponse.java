@@ -1,7 +1,5 @@
 package com.wedive.Spring.security.payload;
 
-import java.util.Set;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -67,9 +67,7 @@ public class UserService {
 		 exUser.setEmail(uDto.getEmail());
 		 if(uDto.getUsername() != null)
 		 exUser.setUsername(uDto.getUsername());
-		 //exUser.setBirthday(uDto.getBirthday());
 		 exUser.setPhoneNumber(uDto.getPhoneNumber());
-		// exUser.setDate(uDto.getDate());
 		 if(uDto.getPassword() != null) {
 			 exUser.setPassword(passwordEncoder.encode(uDto.getPassword()));			 
 		 }
@@ -78,7 +76,6 @@ public class UserService {
 		 exUser.setProfileImage(uDto.getProfileImage());
 		
 		 //exUser.setAddress(uDto.getAddress());
-		// exUser.setDivingCenter(uDto.getDivingCenter());
 		 //exUser.setLicences(uDto.getLicences());
 		 
 		 //ROLES
@@ -100,8 +97,6 @@ public class UserService {
 //	     if(address != null) {
 //	    	 addRepo.save(address);
 //	    	 exUser.setAddress(address);	     }
-	     System.out.println(exUser);
-	     System.out.println(uDto.getBannerImage());
 	     return uRepo.save(exUser);
 		}
     

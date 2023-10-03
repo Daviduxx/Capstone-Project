@@ -1,15 +1,7 @@
 package com.wedive.Spring.security.payload;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.wedive.Spring.security.entity.Address;
-import com.wedive.Spring.security.entity.Dive;
-import com.wedive.Spring.security.entity.DivingCenter;
-import com.wedive.Spring.security.entity.Licence;
-import com.wedive.Spring.security.entity.User;
 import com.wedive.Spring.security.enums.Current;
 import com.wedive.Spring.security.enums.DiveType;
 import com.wedive.Spring.security.enums.GasMix;
@@ -22,11 +14,6 @@ import com.wedive.Spring.security.enums.Waves;
 import com.wedive.Spring.security.enums.Weather;
 import com.wedive.Spring.security.enums.Wetsuit;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

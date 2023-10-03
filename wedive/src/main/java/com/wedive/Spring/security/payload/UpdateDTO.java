@@ -1,15 +1,5 @@
 package com.wedive.Spring.security.payload;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Set;
-
-import com.wedive.Spring.security.entity.Address;
-import com.wedive.Spring.security.entity.Dive;
-import com.wedive.Spring.security.entity.DivingCenter;
-import com.wedive.Spring.security.entity.Licence;
-import com.wedive.Spring.security.entity.Role;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,18 +14,14 @@ import lombok.ToString;
 	public class UpdateDTO {
 		 
 		    private String name;
-		    private String surname;		   
-		    //private LocalDate birthday;		    
+		    private String surname;		   	    
 		    private String username;		    
 		    private String email;
 		    private String password;
-		    private String phoneNumber;		     
-		   // private LocalDateTime date; 	
-		  //  private Set<Role> roles;		   
+		    private String phoneNumber;		   
+		    // COMING SOON
 		   // private Address address;		   
-		   // private Set<Licence> licences;		 
-		  //  private DivingCenter divingCenter;		    
-		  //  private Set<Dive> dives;
+		   // private Set<Licence> licences;		 		    
 		    private String bannerImage;
 		    private String profileImage;
 		    

@@ -18,6 +18,8 @@ import lombok.NoArgsConstructor;
 @Table
 public class Licence {
 	
+	// This is a cooming soon class
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
