@@ -2,6 +2,7 @@
 @import "~primeng/resources/themes/lara-dark-blue/theme.css";
 @import "primeicons/primeicons.css";
 @import "primeflex/primeflex.css";
+@import '../src/app/scss/partials/variables';
 
 // GENERAL SETTINGS
 *{
@@ -15,5 +16,8 @@ body {
   background-color: var(--surface-card);
   i:hover{
     cursor: pointer;
+  }
+  a{
+    color: var(--surface-800);
   }
 }

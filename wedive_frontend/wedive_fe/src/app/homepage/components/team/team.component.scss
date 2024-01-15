@@ -17,9 +17,12 @@
         border-radius: 10px;
         backdrop-filter: blur( 4px );
         transition: backdrop-filter 500ms;
+        a{
+          text-decoration: none;
+        }
         &:hover{
           backdrop-filter: blur( 8px );
-          transition: backdrop-filter 500ms;
+          transition: backdrop-filter 300ms;
         }
       }
     }
